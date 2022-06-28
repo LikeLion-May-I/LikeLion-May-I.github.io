@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./style3.css">
+    <script type="text/JavaScript" src="./popUp3.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">    
+</head>
+<body>
+    <button class="alert-btn" onclick="buttonEffect()"><span>요청 보류</span></button>
+    
+    <div class="popUp3" onclick="modalEffect(event)">
+        <div class="popUp3__body">
+            <span class="alert-title">요청을 <span style="color:#E53935;">보류</span>하시겠습니까?</span>
+            
+            <div class="alert-textWrap">
+                <span class="alert-text">보류 사유를 입력해 주세요.</span>
+                <span class="alert-text">요청자 확인 후 재요청 혹은 목록에서 삭제될 수 있습니다.</span>
+            </div>
+
+            <textarea class="alert-textArea" id="" cols="35" rows="7" placeholder="원고 작성 기한이 하루 더 있으면 수락 가능합니다."></textarea>
+            
+            <div class="alert-btnWrap">
+                <button class="alert-btn cancel" onclick="location.href='./alert.html';">취소</button>
+                <button class="alert-btn" onclick="location.href='./alert.html';">확인</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
