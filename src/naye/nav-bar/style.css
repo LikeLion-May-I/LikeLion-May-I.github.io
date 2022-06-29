@@ -1,0 +1,62 @@
+/*font*/
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*nav-bar*/
+.nav-bar{
+    width: 250px;
+}
+
+input[id*=answer]{
+    display: none;
+}
+
+input[id*=answer] + label{
+    display: block;
+    padding: 20px;
+    /* border: 1px solid gray; */
+    border-radius: 5px;
+    font-weight: 900;
+    /* background-color: #9FA8DA; */
+    cursor: pointer;
+    position: relative;
+}
+
+input[id*=answer] + label em{
+    position: absolute;
+    top: 43%;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    margin-top: -15px;
+    display: inline-block;
+    background: url('./plus.png') 0 0 no-repeat;
+}
+
+input[id*=answer] + label + div{
+    max-height: 0;
+    transition: all 0.35s;
+    overflow: hidden;
+    background: #C5CAE9;
+}
+
+input[id*=answer] + label + div p{
+    display: inline-block;
+    padding: 20px;
+}
+
+input[id*=answer]:checked + label + div{
+    max-height: 200px;
+}
+
+input[id*=answer]:checked + label em{
+    background-position: 0 -30px; 
+}
+
+.flex-box {
+    display: flex;
+    flex-direction: column;
+}
