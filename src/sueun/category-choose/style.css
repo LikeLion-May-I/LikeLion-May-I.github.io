@@ -7,9 +7,10 @@ body{
     justify-content: center;
 }
 
+
 .category{
-    width: 58vw;
-    height: 80vh;
+    width: 58rem;
+    height: 38rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,7 +77,7 @@ body{
 }
 
 .img{
-    width: 4vw;
+    width: 4rem;
     height: auto;
 
 }
@@ -85,7 +86,7 @@ body{
     flex-basis: 30%;
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
+    margin-top: 0.5rem;
     font-weight: 500;
 }
 
