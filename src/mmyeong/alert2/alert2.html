@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./style2.css">
+    <script type="text/JavaScript" src="./popUp2.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">    
+</head>
+<body>
+    
+    <button class="alert-btn" onclick="buttonEffect()"><span>요청 수락</span></button>
+    <div class="popUp2" onclick="modalEffect(event)">
+        <div class="popUp2__body">
+            <span class="alert-title">요청을 <span style="color:#E53935;">수락</span>하시겠습니까?</span>
+            <span class="alert-text">한번 수락하면 취소할 수 없어요.</span>
+            <div class="alert-btnWrap">
+                <button class="alert-btn cancel" onclick="location.href='./alert2.html';">취소</button>
+                <button class="alert-btn" onclick="location.href='./alert2.html';">확인</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
