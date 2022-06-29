@@ -1,0 +1,42 @@
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.nav{
+    list-style-type: none;
+    width: 17vw;
+    padding-left: 0;
+    border-top: solid;
+    border-left: solid;
+    border-right: solid;
+    border-color: #9E9E9E;
+    border-width: 1.6px;
+    border-radius: 2%;
+}
+
+.option{
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: solid;
+    border-color: #9E9E9E;
+    border-width: 1.6px;
+}
+
+.option:hover{
+    background-color: #9FA9D8;
+}
+
+.option a{
+    text-decoration: none;
+    color:black;
+}
+
+
