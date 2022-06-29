@@ -1,10 +1,18 @@
-function buttonEffect(e) {
-    const modal = document.querySelector('.popUp1');
-    const popUp1__body = document.querySelector('.popUp1__body');
-    
-    if (e.target != popUp1__body){
-        modal.classList.toggle('show');
-        if (modal.classList.contains('show')) {
+
+function buttonEffect() {
+    const modalBg = document.querySelector('.popUp1');
+    modalBg.classList.toggle('show');
+    if (modalBg.classList.contains('show')) {
+        document.querySelector("body").style.overflow = 'hidden';
+    }
+}
+
+
+function modalEffect(e) {
+    const modalBg = document.querySelector('.popUp1');
+    if (e.target == modalBg){
+        modalBg.classList.toggle('show');
+        if (modalBg.classList.contains('show')) {
             document.querySelector("body").style.overflow = 'hidden';
         }
     }
