@@ -1,0 +1,99 @@
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.category{
+    width: 58vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.title-layout{
+    flex-basis: 10%;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.option-layout{
+    flex-basis: 80%;
+    display: flex;
+    flex-direction: column;;
+    justify-content: space-evenly;
+}
+
+.option-row1{
+    flex-basis: 45%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.option-row2{
+    flex-basis: 45%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.option{
+    flex-basis: 23%;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+}
+
+.blueBox{
+    border: solid; 
+    border-color : #9FA9D8;
+    border-radius: 2%;
+    border-width: 3.2px;
+}
+
+.grayBox{
+    border: solid;
+    border-color: #9E9E9E;
+    border-radius: 2%;
+    border-width: 3.2px;
+}
+
+.option-img{
+    flex-basis: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.img{
+    width: 4vw;
+    height: auto;
+
+}
+
+.option-title{
+    flex-basis: 30%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+    font-weight: 500;
+}
+
+.blueBox:hover{
+    background-color: #9FA9D8;
+}
+
+.grayBox:hover{
+    background-color: #9E9E9E;
+}
+

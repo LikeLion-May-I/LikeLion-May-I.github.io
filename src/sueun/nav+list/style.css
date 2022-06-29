@@ -1,0 +1,259 @@
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.tab_menu{
+    display: flex;
+}
+
+ul.tabs{
+    margin-top: 12vh;
+    margin-left: 3vh;
+    margin-right: 3vh;
+    list-style-type: none;
+    width: 17vw;
+    height: 100%;
+    padding-left: 0;
+    border-top: solid;
+    border-left: solid;
+    border-right: solid;
+    border-color: #9E9E9E;
+    border-width: 1.6px;
+    border-radius: 2%;
+}
+
+ul.tabs li{
+    display: inline-block;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: solid;
+    border-color: #9E9E9E;
+    border-width: 1.6px;
+    cursor: pointer;
+    
+}
+
+ul.tabs li.current{
+    background-color: #9FA9D8;
+}
+
+.tab-link:hover{
+    background-color: #9FA9D8;
+}
+
+.tab-content{
+    display: none;
+}
+
+.tab-content.current{
+    display: inherit;
+}
+
+.list-up{
+    margin-top: 5vh;
+    width: 70vw;
+    height: 87vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.transmission-layout{
+    flex-basis: 4%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-layout{
+    flex-basis: 18%;
+    border: solid;
+    border-color: #000000;
+    border-width: 1px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 2vh;
+}
+
+.search-img{
+    width: min-content;
+    height: min-content;
+    margin-right: 1vh;
+}
+
+.sequencing-layout{
+    flex-basis: 25%;
+    display: flex;
+    border: solid;
+    border-color: #D9D9D9;
+    border-width: 1px;
+    margin-right: 5vh;
+    font-size: 0.8rem;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.sequencing-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recent{
+    flex-grow: 2.5;
+}
+
+.update{
+    flex-grow: 3;
+    border-left: solid;
+    border-right: solid;
+    border-color: #000000;
+    border-width: 1px;
+}
+
+.certified{
+    flex-grow: 2;
+}
+
+.content-layout{
+    flex-basis: 87%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.content-row1{
+    flex-basis: 31%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content-row2{
+    flex-basis: 31%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content-row3{
+    flex-basis: 31%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content-box{
+    flex-basis: 48%;
+    background-color: #F5F5F5;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.info-layout{
+    flex-basis: 77%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0.5vh;
+}
+
+.info-img{
+    flex-basis: 24%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img{
+    position: absolute;
+    width: 7vw;
+    height: 15vh;
+    background-color: #D9D9D9;
+}
+
+.verified-mark{
+    position: relative;
+    width: min-content;
+    height: min-content;
+    margin: 1vh;
+}
+
+.info-detail{
+    flex-basis: 66%;
+    margin-top: 0.5vh;
+    
+}
+
+.title{
+    margin-top: 2.5vh;
+    font-size: 1.1rem;
+    font-weight: 500;
+    
+}
+
+.content{
+    font-size: 0.7rem;
+    font-weight: 300;
+    margin-top: 2vh;
+    line-height: 180%;
+    
+}
+
+.record-layout{
+    flex-basis: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.record{
+    flex-basis: 33%;
+    display: flex;
+    justify-content: center;
+}
+
+.response{
+    flex-basis: 26%;
+    color: #E53935;
+}
+
+.record-img{
+    width: min-content;
+    height: min-content;
+    margin-top: 3px;
+    margin-right: 6px;
+}
+
+
+.record-content{
+    font-size: 1rem;
+}
+
+.page-layout{
+    flex-basis: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page{
+    display: flex;
+}
+
+.page-content{
+    width: 1.7vw;
+    background-color: #757575;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-img{
+    width: 1.7vw;
+    height: auto;
+    
+}
