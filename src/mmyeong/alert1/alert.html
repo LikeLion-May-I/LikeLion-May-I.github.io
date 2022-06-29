@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
     <script type="text/JavaScript" src="./popUp.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
-    
-</head>
-<body>
-    <button class="popUpBtn" onclick="buttonEffect(event)"><ion-icon name="add-circle-outline"></ion-icon><span>팝업창</span></button>
-    
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+  </head>
+  <body>
+    <button class="popUpBtn" onclick="buttonEffect(event)">
+      <ion-icon name="add-circle-outline"></ion-icon><span>팝업창</span>
+    </button>
+
     <div class="popUp1" onclick="buttonEffect(event)">
-        <div class="popUp1__body">
-            <span class="material-symbols-sharp" style="font-size:40px;" >
-                check_circle
-            </span>
-            <span class="alert-title">요청 수락</span>
-            <span class="alert-text">요청자와 인터뷰를 진행해 주세요</span>
-            <button class="alert-btn">확인</button>
-        </div>
+      <div class="popUp1__body">
+        <span class="material-symbols-sharp" style="font-size: 40px">
+          check_circle
+        </span>
+        <span class="alert-title">요청 수락</span>
+        <span class="alert-text">요청자와 인터뷰를 진행해 주세요</span>
+        <button class="alert-btn">확인</button>
+      </div>
     </div>
-</body>
+  </body>
 </html>
