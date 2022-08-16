@@ -6,44 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link  href="/styles/output.css" rel="stylesheet"/> -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/dataFetchEx.js"></script>
     <title>Tailwind Starter</title>
 </head>
 
+
 <body>
 
-    <div class="flex justify-center p-10">
-        <div class="bg-white rounded-10 border p-5 w-full">
-          <div class="flex mb-5 text-center font-bold text-base justify-evenly text-black">
-            <p>소속</p>
-            <p>제목</p>
-            <p>기한</p>
+
+  <nav class="max-w-[1000px] relative overflow-hidden flex mx-8 md:px-20 md:mx-auto justify-between border-b bg-white">
+    <link href="#">
+      <Image
+        src="./img/landing_page1_MayI_logo.svg"
+        alt="logo"
+        width={100}
+        height={80}
+      />
+    </link>
+    <div class="flex items-center ml-auto">
+<link href=‘#’>
+          <a class="hidden md:flex text-sm md:text-lg ml-[0.6rem] md:mr-10 hover:text-indigo-500 font-bold">
+            Expert
+          </a>
+        </link>
+    <div class="flex items-center ml-auto">
+<link href=‘#’>
+          <a class="hidden md:flex text-sm md:text-lg ml-[0.6rem] md:mr-10 hover:text-indigo-500 font-bold">
+            Reporter
+          </a>
+        </link>
+    <div class="flex items-center ml-auto">
+<link href=‘#’>
+          <a class="hidden md:flex text-sm md:text-lg ml-[0.6rem] md:mr-10 hover:text-indigo-500 font-bold">
+            Q&A
+          </a>
+        </link>
+      <link href="#">
+        <a class="font-heading text-white font-bold inline-flex items-center justify-center px-[1rem] text-sm md:text-lg py-2 md:px-6 rounded-full transform duration-200 bg-indigo-300 hover:bg-indigo-500">
+          Sign Up/In
+        </a>
+      </link>
+    </div>
+  </nav>
+
+
+
+  <div class="w-full">
+    <div class="flex justify-center w-full">
+      <div class="bg-white w-36">
+        <p class="p-4 font-bold">Reporter</p>
+        <div class="flex-col">
+          <ul class="mb-8 text-sm font-medium"><li>
+            <a class="flex items-center pl-3 py-3 hover:bg-indigo-50 rounded text-black pr-4 border-b-2" href="#">
+              <span contenteditable="false">요청 인터뷰</span>
+            </a>
+            </li>
+            <li>
+              <a class="flex items-center pl-3 py-3 pr-4 hover:bg-indigo-50 rounded text-black border-b-2" href="#">
+                <span contenteditable="false">인터뷰 현황</span>
+              </a>
+            </li>
+            <li>
+              <a class="flex items-center pl-3 py-3 pr-4 hover:bg-indigo-50 rounded text-black" href="#">
+                <span contenteditable="false">내 프로필</span>
+              </a>
+            </li>
+          </ul></div>
+      </div>
+  
+      <div class="flex p-5 justify-center">
+        <div class="bg-white rounded-2xl border p-5" id = "interviewWrap">
+          <div class="flex mb-5 text-center font-bold text-base justify-around text-black w-full space-x-20">
+            <p class="pl-3">전문가</p>
+            <p class="pl-20">제목</p>
+            <p class="pl-36">기한</p>
             <p>진행상황</p>
           </div>
-          <div class="flex p-3 justify-around text-base text-black">
-            <p>중앙헤럴드</p>
-            <p>백신여권, 한국에도 도입해야 하는가?</p>
-            <p>6시간 10분</p>
-            <p>요청</p>
-          </div>
-          <div class="flex p-3 justify-around text-base text-black">
-            <p>한국신문</p>
-            <p>블록체인의 미래, 5명의 전문가에게 물어봤다</p>
-            <p>12시간 30분</p>
-            <p>요청</p>
-          </div>
-          <div class="flex p-3 justify-around">
-            <p>우리경제</p>
-            <p>급부상 헬스케어 시장, 당신의 정보 과연 안전한가?</p>
-            <p>24시간 50분</p>
-            <p>요청</p>
-          </div>
+          
         </div>
       </div>
+    </div>
+  </div>
+
     
 
 </body>
-
-
-
 
 </html>
