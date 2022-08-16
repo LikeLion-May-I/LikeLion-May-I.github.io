@@ -1,7 +1,7 @@
 
 window.onload = () => {
 
-    fetch("http://127.0.0.1:8000/profile/get-apply-request-all-for-reporter/", {
+    fetch("http://127.0.0.1:8000/profile/get-apply-answered-all-for-reporter/2", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -15,9 +15,7 @@ window.onload = () => {
             const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
                                     <p>${div.name}</p>
                                     <p>${div.title}</p>
-                                    <p>${div.deadline}</p>
-                                    <p>${div.is_send}</p>
-                                    
+                                    <p>${div.response}</p>
                             </a>`
             interviewWrap.innerHTML += interviewDiv
                     
