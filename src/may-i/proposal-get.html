@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/dataFetchEx_proposal.js"></script>
+    <script src="./js/nav.js"></script>
+    
+    <title>Tailwind Starter</title>
+  </head>
+
+  <body>
+
+    <div id='navDiv'></div>
+    
+  
+    <div class="w-full">
+      <div class="flex justify-center w-full">
+        <div class="bg-white w-36">
+          <p class="p-4 font-bold">Reporter</p>
+          <div class="flex-col">
+            <ul class="mb-8 text-sm font-medium">
+              <li>
+                <a
+                  class="flex items-center pl-3 py-3 hover:bg-indigo-50 rounded text-black pr-4 border-b-2"
+                  href="#"
+                >
+                  <span contenteditable="false">요청 인터뷰</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="flex items-center pl-3 py-3 pr-4 hover:bg-indigo-50 rounded text-black border-b-2"
+                  href="#"
+                >
+                  <span contenteditable="false">인터뷰 현황</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="flex items-center pl-3 py-3 pr-4 hover:bg-indigo-50 rounded text-black"
+                  href="#"
+                >
+                  <span contenteditable="false">내 프로필</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex p-5 justify-center">
+          <div class="bg-white rounded-2xl shadow-2xl p-5">
+            <section class="flex justify-center">
+              <div class="container px-4">
+                <div class="overflow-hidden bg-white p-3">
+                  <div class="border-coolGray-100">
+                    <div
+                      class="flex flex-wrap items-center justify-center mb-6"
+                    >
+                      <div class="w-full md:w-auto p-2 text-center">
+                        <h2 class="text-coolGray-900 font-semibold text-3xl">
+                          May I 제안서
+                        </h2>
+                      </div>
+                      <div class="w-full md:w-auto p-2">
+                        <div
+                          class="flex flex-wrap justify-between -m-1.5"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex justify-center">
+                    <div class="w-full">
+                      <div class="flex flex-wrap -m-3">
+                        <div class="p-3 w-full md:w-1/4" id="recipientOrsender">
+                          <!-- <p class="font-semibold py-2">받는이</p> -->
+                        </div>
+                        <div class="w-full md:flex-1 p-3" id="expert_name">
+                          <!-- <p class="w-full text-base font-normal outline-none text-black py-2 px-4">
+                            김산보
+                          </p> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border-coolGray-100 py-1 flex justify-center">
+                    <div class="w-full">
+                      <div class="flex flex-wrap -m-3">
+                        <div class="w-full md:w-1/4 p-3">
+                          <p class="font-semibold py-2">제목</p>
+                        </div>
+                        <div class="md:flex-1 p-3" id="title">
+                          <!-- <input
+                            class="w-full text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input py-2 px-4"
+                            type="text"
+                            placeholder="백신여권, 한국에도 도입해야 하는가?"
+                          /> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border-coolGray-100 py-1 flex justify-center">
+                    <div class="w-full">
+                      <div class="flex flex-wrap -m-3">
+                        <div class="w-full p-3 md:w-1/4">
+                          <p class="font-semibold py-2">소속</p>
+                        </div>
+                        <div class="w-full p-3 md:flex-1" id="department">
+                          <!-- <p
+                            class="w-full px-4 text-base font-normal outline-none text-black py-2"
+                          >
+                            중앙대학교 영자신문사 중앙헤럴드
+                          </p> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border-coolGray-100 py-1 flex justify-center">
+                    <div class="w-full">
+                      <div class="flex flex-wrap -m-3">
+                        <div class="w-full p-3 md:w-1/4">
+                          <p class="text-coolGray-800 font-semibold">용도</p>
+                        </div>
+                        <div class="w-full p-3 md:flex-1"id="purpose">
+                          <!-- <input
+                            class="w-full px-4 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg py-2"
+                            type="text"
+                            placeholder="전문가 의견 기고"
+                          /> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border-coolGray-100 flex justify-center py-5">
+                    <div class="w-full">
+                      <div class="flex flex-wrap -m-3">
+                        <div class="w-full p-3 md:w-1/4">
+                          <p class="text-coolGray-800 font-semibold">형식</p>
+                        </div>
+                        <div class="px-4 py-3 space-x-3">
+                          <label>
+                            <input
+                              type="radio"
+                              name="inline-radio"
+                              value="option 1"
+                            />
+                            <span class="ml-1">대면</span>
+                          </label>
+                          <label>
+                            <input
+                              type="radio"
+                              name="inline-radio"
+                              value="option 2"
+                            />
+                            <span class="ml-1">서면</span>
+                          </label>
+                          <label>
+                            <input
+                              type="radio"
+                              name="inline-radio"
+                              value="option 3"
+                            />
+                            <span class="ml-1">전화</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border-coolGray-100 py-3 flex justify-center">
+                    <div class="w-full">
+                      <div class="flex flex-wrap -m-3">
+                        <div class="w-full p-3 md:w-1/4">
+                          <p class="text-coolGray-800 font-semibold">분량</p>
+                        </div>
+                        <div class="w-full md:flex-1 p-3" id="amount">
+                          <!-- <input
+                            class="w-full px-4 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg py-2"
+                            type="text"
+                            placeholder="워드 1페이지(11pt)"
+                          /> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border-coolGray-100 py-3 flex justify-center">
+                    <div class="w-full">
+                      <div class="flex flex-wrap -m-3">
+                        <div class="w-full p-3 md:w-1/4">
+                          <p class="text-coolGray-800 font-semibold">내용</p>
+                        </div>
+                        <div class="w-full md:flex-1 p-3" id="body">
+                          <!-- <textarea
+                            class="block w-full p-6 text-base text-coolGray-900 font-normal outline-none border border-coolGray-200 rounded-lg resize-none h-80 py-2"
+                            placeholder="안녕하세요.
+                    저는 중앙대학교 영자신문사 중앙헤럴드 문화부 기자 김중앙입니다.
+                    저희 중앙헤럴드에서는 이번 6월 호에 ‘백신여권, 한국에도 도입해야 하는가?’를 주제로 찬반양측의 의견을 담은 글을 작성하고자 합니다.
+                    이에 교수님의 견해를 담은 서면 인터뷰를 요청드리는 바입니다.
+                    인터뷰가 가능하시다면, 7월 13일까지 reporter@cau.ac.kr 주소로 원고를 보내주시기 바랍니다. 양식은 없으며, 분량은 워드 기준 1p입니다.
+                    읽어주셔서 감사합니다.
+                    좋은 하루 보내시길 바랍니다."
+                          ></textarea> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border-coolGray-100 flex justify-center py-3">
+                    <div class="w-full">
+                      <div class="flex flex-wrap -m-3">
+                        <div class="w-full p-3 md:w-1/4">
+                          <p class="text-sm text-coolGray-800 font-semibold">
+                            첨부파일
+                          </p>
+                        </div>
+                        <div class="w-full md:flex-1 p-3">
+                          <div class="relative items-center justify-center text-center text-green-500 border border-coolGray-200 rounded-lg flex justify-between p-3">
+                            <p class="mb-1 text-sm text-coolGray-800 font-medium">없음</p>
+                            <svg
+                              class="mb-1"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M8.71 7.71L11 5.41V15C11 15.2652 11.1054 15.5196 11.2929 15.7071C11.4804 15.8946 11.7348 16 12 16C12.2652 16 12.5196 15.8946 12.7071 15.7071C12.8946 15.5196 13 15.2652 13 15V5.41L15.29 7.71C15.383 7.80373 15.4936 7.87813 15.6154 7.92889C15.7373 7.97966 15.868 8.0058 16 8.0058C16.132 8.0058 16.2627 7.97966 16.3846 7.92889C16.5064 7.87813 16.617 7.80373 16.71 7.71C16.8037 7.61704 16.8781 7.50644 16.9289 7.38458C16.9797 7.26272 17.0058 7.13202 17.0058 7C17.0058 6.86799 16.9797 6.73729 16.9289 6.61543C16.8781 6.49357 16.8037 6.38297 16.71 6.29L12.71 2.29C12.6149 2.19896 12.5028 2.1276 12.38 2.08C12.1365 1.97999 11.8635 1.97999 11.62 2.08C11.4972 2.1276 11.3851 2.19896 11.29 2.29L7.29 6.29C7.19676 6.38324 7.1228 6.49393 7.07234 6.61575C7.02188 6.73758 6.99591 6.86814 6.99591 7C6.99591 7.13186 7.02188 7.26243 7.07234 7.38425C7.1228 7.50607 7.19676 7.61677 7.29 7.71C7.38324 7.80324 7.49393 7.8772 7.61575 7.92766C7.73757 7.97812 7.86814 8.00409 8 8.00409C8.13186 8.00409 8.26243 7.97812 8.38425 7.92766C8.50607 7.8772 8.61676 7.80324 8.71 7.71ZM21 12C20.7348 12 20.4804 12.1054 20.2929 12.2929C20.1054 12.4804 20 12.7348 20 13V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V13C4 12.7348 3.89464 12.4804 3.70711 12.2929C3.51957 12.1054 3.26522 12 3 12C2.73478 12 2.48043 12.1054 2.29289 12.2929C2.10536 12.4804 2 12.7348 2 13V19C2 19.7957 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7957 22 19V13C22 12.7348 21.8946 12.4804 21.7071 12.2929C21.5196 12.1054 21.2652 12 21 12Z"
+                                fill="currentColor"
+                              ></path>
+                            </svg>
+                            <input
+                              class="absolute top-0 left-0 w-full opacity-0"
+                              type="file"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border-coolGray-100 py-3 flex justify-center">
+                    <div class="w-full">
+                      <div class="flex flex-wrap -m-3">
+                        <div class="w-full p-3 md:w-1/4">
+                          <p class="text-coolGray-800 font-semibold">
+                            참고링크
+                          </p>
+                        </div>
+                        <div class="w-full md:flex-1 p-3"id="url">
+                          <!-- <input
+                            class="w-full px-4 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg py-2"
+                            type="text"
+                            placeholder="없음"
+                          /> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="border-coolGray-100 py-3 flex justify-center">
+                    <div class="w-full">
+                      <div class="flex flex-wrap -m-3">
+                        <div class="w-full p-3 md:w-1/4">
+                          <p class="text-coolGray-800 font-semibold"></p>
+                        </div>
+                        <div class="w-full md:flex-1 p-3">
+                          <div class="border border-coolGray-200 rounded-lg">
+                            <div class="flex px-4 py-2 space-x-2">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="18"
+                                height="18"
+                                viewBox="0 0 18 18"
+                                fill="none"
+                                class=""
+                              >
+                                <rect
+                                  width="18"
+                                  height="18"
+                                  fill="url(#pattern0)"
+                                ></rect>
+                                <defs>
+                                  <pattern
+                                    id="pattern0"
+                                    patternContentUnits="objectBoundingBox"
+                                    width="1"
+                                    height="1"
+                                  >
+                                    <use
+                                      xlink:href="#image0_940_1371"
+                                      transform="scale(0.0208333)"
+                                    ></use>
+                                  </pattern>
+                                  <image
+                                    id="image0_940_1371"
+                                    width="48"
+                                    height="48"
+                                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAsVJREFUaEPtmOFRHDEMhd9VAB0QKgAqgFRAqACoAKgAqAA6SFJBoAKgAqACoAPogHk3FiPMri155SE3c/5zN3M+W58kP0ueYcHHbMHtxxLguyPYOwI7CfC2F2hvgKdk+PoiApwBOE2GnwC47AHRKwKrAOh9fnK8AmAU+Bk6egH8AbCfWfoXwEGo9UAXGd0EcD9i6BaAh0iIHhG4ASDqc5eM3VZq9PN/BmCK/FYGivqIGvGnPQBXURCREeCBZer8SMadA6AScVCBjtL3ZwBMpZADHQmgZfMtgYiRhKPhKwNwk4IRBUCv0/sim4cAqER66PQiGKNAqEkjCuAfgF/JkkcAVKKhQQXaSD+EyGoEABWHyiODKjNW+3jmmiITAcDUEY9bvEoF2k3WMSJMpeYxFUDnNQ8uQWp5zfNCw+VAD50XM9AUgLze0bJJA2iolBMv2aHWijWpTpoCoLWdBtL7Wtt1vvNGltuZcIRnFNamymorAL1bu11LALSbqkX1ksFbu5Z+X1KrFSCvd7R3ZZMaAOdRrSbVSS0AuRSOVZgWgLxyLUnw4MFuAWDqSL1Tkk0LAI3SvQNTyNV+egFK9U7uIStAXie52k8PQC6btY2sAAQ/BnCRPOCSVQ+ADjVlU9Jo7NLxAHANpo/IquVGn+9rBWg5bF4Aqzh8cpgVwCKbrWdA/88tqxaAoTbRcuEwxeQVgvPz/mAo9SwXpCsCpTbRXHA5J2qlq7aftQh4ZNNp5+h0V/tZArC0iTWj+ULBdSi5nvcgc/tZArC2iRYZvVYtZw1afje1n2MAEa2fToWWtyCTDWMA3jax5FWCtL4B6ctzsP0cAmhpE61p4Z1XbT9zgFqb6DUgYn6x/cwBdJsYsXmPNT713hogvwV7bB615kf7qQF0vRO1Ua91WDPNn+lrN3EvA8LWXQKEubJxoWUEGh0X9reFj8A70DqvMTBkpnIAAAAASUVORK5CYII="
+                                  ></image>
+                                </defs>
+                              </svg>
+                              <p
+                                class="w-full text-base font-normal outline-none text-red-600"
+                              >
+                                한번 전송하면 취소할 수 없어요. 신중하게
+                                작성해주세요.
+                              </p>
+                            </div>
+                            <div class="flex px-4 py-2 space-x-2">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="18"
+                                height="18"
+                                viewBox="0 0 18 18"
+                                fill="none"
+                                class=""
+                              >
+                                <rect
+                                  width="18"
+                                  height="18"
+                                  fill="url(#pattern0)"
+                                ></rect>
+                                <defs>
+                                  <pattern
+                                    id="pattern0"
+                                    patternContentUnits="objectBoundingBox"
+                                    width="1"
+                                    height="1"
+                                  >
+                                    <use
+                                      xlink:href="#image0_940_1371"
+                                      transform="scale(0.0208333)"
+                                    ></use>
+                                  </pattern>
+                                  <image
+                                    id="image0_940_1371"
+                                    width="48"
+                                    height="48"
+                                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAsVJREFUaEPtmOFRHDEMhd9VAB0QKgAqgFRAqACoAKgAqAA6SFJBoAKgAqACoAPogHk3FiPMri155SE3c/5zN3M+W58kP0ueYcHHbMHtxxLguyPYOwI7CfC2F2hvgKdk+PoiApwBOE2GnwC47AHRKwKrAOh9fnK8AmAU+Bk6egH8AbCfWfoXwEGo9UAXGd0EcD9i6BaAh0iIHhG4ASDqc5eM3VZq9PN/BmCK/FYGivqIGvGnPQBXURCREeCBZer8SMadA6AScVCBjtL3ZwBMpZADHQmgZfMtgYiRhKPhKwNwk4IRBUCv0/sim4cAqER66PQiGKNAqEkjCuAfgF/JkkcAVKKhQQXaSD+EyGoEABWHyiODKjNW+3jmmiITAcDUEY9bvEoF2k3WMSJMpeYxFUDnNQ8uQWp5zfNCw+VAD50XM9AUgLze0bJJA2iolBMv2aHWijWpTpoCoLWdBtL7Wtt1vvNGltuZcIRnFNamymorAL1bu11LALSbqkX1ksFbu5Z+X1KrFSCvd7R3ZZMaAOdRrSbVSS0AuRSOVZgWgLxyLUnw4MFuAWDqSL1Tkk0LAI3SvQNTyNV+egFK9U7uIStAXie52k8PQC6btY2sAAQ/BnCRPOCSVQ+ADjVlU9Jo7NLxAHANpo/IquVGn+9rBWg5bF4Aqzh8cpgVwCKbrWdA/88tqxaAoTbRcuEwxeQVgvPz/mAo9SwXpCsCpTbRXHA5J2qlq7aftQh4ZNNp5+h0V/tZArC0iTWj+ULBdSi5nvcgc/tZArC2iRYZvVYtZw1afje1n2MAEa2fToWWtyCTDWMA3jax5FWCtL4B6ctzsP0cAmhpE61p4Z1XbT9zgFqb6DUgYn6x/cwBdJsYsXmPNT713hogvwV7bB615kf7qQF0vRO1Ua91WDPNn+lrN3EvA8LWXQKEubJxoWUEGh0X9reFj8A70DqvMTBkpnIAAAAASUVORK5CYII="
+                                  ></image>
+                                </defs>
+                              </svg>
+                              <p
+                                class="w-full text-base font-normal outline-none text-red-600"
+                              >
+                                명확하고 구체적으로 작성할수록 답변율이 높아요.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="py-4 flex justify-center space-x-4">
+                    <button class="border p-2 w-28 rounded-full text-black">
+                      임시저장
+                    </button>
+                    <button
+                      class="border bg-violet-300 p-2 w-28 rounded-full text-black">
+                      전송
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
