@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./js/dataFetchEx_proposal.js"></script>
+    <script src="./js/proposal-get.js"></script>
     <script src="./js/nav.js"></script>
     
-    <title>Tailwind Starter</title>
+    <title>proposal-get</title>
   </head>
 
   <body>
@@ -78,7 +78,7 @@
                         <div class="p-3 w-full md:w-1/4" id="recipientOrsender">
                           <!-- <p class="font-semibold py-2">받는이</p> -->
                         </div>
-                        <div class="w-full md:flex-1 p-3" id="expert_name">
+                        <div class="w-full md:flex-1 p-3" id="name">
                           <!-- <p class="w-full text-base font-normal outline-none text-black py-2 px-4">
                             김산보
                           </p> -->
@@ -104,22 +104,22 @@
                     </div>
                   </div>
 
-                  <div class="border-coolGray-100 py-1 flex justify-center">
+                  <!-- <div class="border-coolGray-100 py-1 flex justify-center">
                     <div class="w-full">
                       <div class="flex flex-wrap -m-3">
                         <div class="w-full p-3 md:w-1/4">
                           <p class="font-semibold py-2">소속</p>
                         </div>
                         <div class="w-full p-3 md:flex-1" id="department">
-                          <!-- <p
+                          <p
                             class="w-full px-4 text-base font-normal outline-none text-black py-2"
                           >
                             중앙대학교 영자신문사 중앙헤럴드
-                          </p> -->
+                          </p>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 
                   <div class="border-coolGray-100 py-1 flex justify-center">
                     <div class="w-full">
@@ -222,8 +222,8 @@
                           </p>
                         </div>
                         <div class="w-full md:flex-1 p-3">
-                          <div class="relative items-center justify-center text-center text-green-500 border border-coolGray-200 rounded-lg flex justify-between p-3">
-                            <p class="mb-1 text-sm text-coolGray-800 font-medium">없음</p>
+                          <div id="file" class="relative items-center justify-center text-center text-green-500 border border-coolGray-200 rounded-lg flex justify-between p-3">
+                            <!-- <p class="mb-1 text-sm text-coolGray-800 font-medium">없음</p> -->
                             <svg
                               class="mb-1"
                               width="24"
@@ -239,7 +239,7 @@
                             </svg>
                             <input
                               class="absolute top-0 left-0 w-full opacity-0"
-                              type="file"
+                              
                             />
                           </div>
                         </div>
@@ -363,14 +363,14 @@
                     </div>
                   </div>
 
-                  <div class="py-4 flex justify-center space-x-4">
-                    <button class="border p-2 w-28 rounded-full text-black">
+                  <div id="button" class="py-4 flex justify-center space-x-4">
+                    <!-- <button class="border p-2 w-28 rounded-full text-black">
                       임시저장
-                    </button>
-                    <button
+                    </button> -->
+                    <!-- <button
                       class="border bg-violet-300 p-2 w-28 rounded-full text-black">
                       전송
-                    </button>
+                    </button> -->
                   </div>
                 </div>
               </div>
