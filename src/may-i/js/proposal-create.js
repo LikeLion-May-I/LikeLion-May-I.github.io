@@ -1,4 +1,6 @@
 
+
+
 window.onload = () => {
 
   //  여기서 local storage 에 저장한 받는이 전문가 id 값 가져오기
@@ -10,56 +12,55 @@ window.onload = () => {
 
   let interviewId = String(2);
   // experUserId = localStorage.getItem("experUserId");
+  
 
   document.querySelector('#expert_name').innerHTML += `<p class="w-full text-base font-normal outline-none text-black py-2 px-4">${expertName}</p>`
 
   const formActionUrl = "http://127.0.0.1:8000/interview/update-interview/" + interviewId
   
   // submit 할경우 인터뷰 업데이트
-  const updateInterviewForm = querySelector('#updateInterviewForm').innerHTML += `<p class="w-full text-base font-normal outline-none text-black py-2 px-4">${expertName}</p>`
+  const updateInterviewForm = document.querySelector('#updateInterviewForm');
   updateInterviewForm.setAttribute('action',formActionUrl);
 
   // send 할 경우 expertUserId 이어붙이고 fetch
-  
 
 }
 
-const data = { username: 'example' };
 
-fetch('https://example.com/profile', {
-  method: 'POST', // 또는 'PUT'
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(data),
-})
-.then((response) => response.json())
-.then((data) => {
-  console.log('성공:', data);
-})
-.catch((error) => {
-  console.error('실패:', error);
-});
-
-
-
-const clickBtn = () => {
-
-    fetch("https://jsonplaceholder.typicode.com/posts/1")
-    .then((response) => response.json())
-    .then((data) => {
-
-        console.log(data)
-
-    });
-
-}
 
 const changeFileName = (obj) => {
-
-
   document.querySelector('#fileName').innerHTML = obj.files[0].name
-
 }
 
 
+const formFetching = () => {
+  const updateInterviewForm = document.updateInterviewForm;
+  
+  let interviewId = String(2);
+  // experUserId = localStorage.getItem("experUserId");
+  
+  const formActionUrl = "http://127.0.0.1:8000/interview/update-interview/" + interviewId
+
+  console.log(formActionUrl)
+  if(!updateInterviewForm.method.value){
+    alert("인터뷰 방식을 선택해 주세요!");
+  } else{
+
+      let formData = new FormData(updateInterviewForm)
+
+      fetch(formActionUrl, {
+        method: 'POST', // 또는 'PUT'
+        body: formData,
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        alert("임시저장 성공!");
+
+      })
+      .catch((error) => {
+        console.error('실패:', error);
+      });
+
+  }
+
+}
