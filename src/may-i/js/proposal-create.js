@@ -3,14 +3,18 @@
 
 window.onload = () => {
 
+  const createData = localStorage.getItem("data");
   //  여기서 local storage 에 저장한 받는이 전문가 id 값 가져오기
-  let expertName = "김명명";
-  // expertName = localStorage.getItem("expertName");
-
-  let experUserId = 1;
+  // let expertName = "김명명";
+  // let experUserId = 1;
+  // let interviewId = String(2);
+  let expertName = createData["expert_name"]
+  let experUserId = createData["expert_id"]
+  let interviewId = String(createData["id"]);
+  
   // experUserId = localStorage.getItem("experUserId");
 
-  let interviewId = String(2);
+  
   // experUserId = localStorage.getItem("experUserId");
   
 
