@@ -1,9 +1,7 @@
-
-
+const baseUrl = "http://may-i-server.o-r.kr:8000"
 
 window.onload = () => {
-
-  const createData = localStorage.getItem("data");
+  const createData = JSON.parse(localStorage.getItem('data'))
   //  여기서 local storage 에 저장한 받는이 전문가 id 값 가져오기
   // let expertName = "김명명";
   // let experUserId = 1;
@@ -43,7 +41,7 @@ const formFetching = () => {
   let interviewId = String(2);
   // experUserId = localStorage.getItem("experUserId");
   
-  const formActionUrl = "http://127.0.0.1:8000/interview/update-interview/" + interviewId
+  const formActionUrl = `${baseUrl}/interview/update-interview/` + interviewId
 
   console.log(formActionUrl)
   if(!updateInterviewForm.method.value){

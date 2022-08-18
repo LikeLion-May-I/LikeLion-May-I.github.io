@@ -1,8 +1,12 @@
 const baseUrl = "http://may-i-server.o-r.kr:8000"
 
 window.onload = () => {
+    
+    const id = JSON.parse(localStorage.getItem('data')).id
 
-    fetch("http://may-i-server.o-r.kr:8000/profile/get-profile-one/5", {
+    console.log(id);
+
+    fetch("http://may-i-server.o-r.kr:8000/profile/get-profile-one/"+id, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -32,86 +36,106 @@ window.onload = () => {
             }
         }
 
+        const loadedLastlogin = new Date(data.data.last_login);
+            const today = new Date()
+
+            const timedelta = today.getTime() - loadedLastlogin.getTime();
+            
+            const timedeltaform = Math.floor(Math.abs(timedelta / (1000 * 60 * 60 * 24)));
+            console.log(timedeltaform);
+
+
+            if (timedeltaform > 24){
+                last_login = Math.floor(timedelta / 24) + "일";
+            }else{
+                last_login = timedeltaform + "시간";
+            }
+
         const profileWrap = document.querySelector('#profile');
 
-        const profileDiv = `<div class="w-full flex px-6 justify-center">
-        <div class="bg-white rounded-10 shadow-2xl flex">
-          <div class="flex-col flex-wrap w-72 p-4">
-            <div class="flex justify-center p-8">
-              <Image 
-                  src=${baseUrl}${data.data.img}
-                  alt=""
-                  width={150}
-                  height={150}
-              />
-              </div>
-            <h3 class="font-heading font-medium text-xl text-black text-center">${data.data.name}</h3>
-            <p class="mb-7 text-lg text-black text-center">${data.data.department}</p>
-            <div class="flex justify-center" id="tagWrap">
+        const profileDiv = `<div class="flex flex-wrap justify-center">
+        <div class="w-1/2 py-10">
+        <div class="bg-white rounded-2xl shadow-2xl flex p-5 space-x-3">
+          <div class="flex-col justify-center">
+          <div class="flex justify-center mb-7">
+            <img src=${baseUrl}${data.data.img} alt="" width="150" />
+          </div>
+          <div class="mb-3">
+            <h3 class="font-semibold text-black text-center">
+              ${data.data.name}
+            </h3>
+            <p class="mb-7 text-sm text-black text-center w-44">
+              ${data.data.department}
+            </p>
+          </div>
+            <div class="flex" id="tagWrap">
             </div>
           </div>
   
-          <div class="flex-col p-10">
+          <div class="flex-col">
             <div class="w-full">
-              <div class="bg-white rounded border p-4 mb-5">
-                <div class="flex text-black justify-between">
+              <div class="bg-white rounded border p-4 mb-2">
+                <div class="flex text-sm text-black justify-between">
                   <p class="font-semibold">학력</p>
                   <p>${data.data.background}</p>
                 </div>
-                <div class="flex text-black justify-between">
+                <div class="flex text-sm text-black justify-between">
                   <p class="font-semibold">이메일</p>
                   <p>professor@cau.ac.kr</p>
                 </div>
-                <div class="flex justify-between text-black">
+                <div class="flex text-sm text-black justify-between">
                   <p class="font-semibold">사무실</p>
                   <p>${data.data.office}</p>
                 </div>
-                <div class="flex justify-between">
+                <div class="flex text-sm justify-between">
                   <p class="font-semibold">연락처</p>
                   <p class="text-black">${data.data.phone}</p>
                 </div>
               </div>
             </div>
             <div class="w-full">
-              <div class="bg-white rounded border mb-5 p-4">
-                <h3 class="mb-5 font-heading font-bold text-black">이전 인터뷰 기록</h3>
-                <div class="flex justify-between text-base space-x-4">
+              <div class="bg-white rounded border mb-2 p-4">
+                <h3 class="mb-2 font-semibold text-sm text-black">이전 인터뷰 기록</h3>
+                <div class="flex justify-between text-sm space-x-2">
                   <p class="text-gray-900">“지속 가능한 블록체인 생태계에 대한 고찰”</p>
                   <p class="text-gray-900">2022/04/05</p>
                 </div>
-                <div class="flex justify-between text-base space-x-4">
+                <div class="flex justify-between text-sm space-x-2">
                   <p class="text-gray-900">“중앙대 블록체인서비스연구센터, 블록체인 기반 연구 시작”</p>
                   <p class="text-gray-900">2021/12/11</p>
                 </div>
               </div>
             </div>
-            <button class="bg-indigo-300 w-full rounded-full mb-5 p-3 font-semibold" onclick="clickBtn()">취재 요청하기</button>
-            <div class="flex justify-evenly text-base">
-              <Image
-                  src="https://static.shuffle.dev/uploads/files/9c/9c9ade69edd44a529fec17278e5819cee4339b5a/mode-comment-FILL0-wght400-GRAD0-opsz48-5.svg"
-                  alt=""
-                  width={20}
-                  height={18}
+            
+            <div class="flex justify-evenly mb-2 text-sm">
+              <img
+                src="/src/may-i/img/comment.svg"
+                alt=""
+                width="15"
               />
               <p>응답률 ${reply_rate}</p>
-              <Image
-                  src="https://static.shuffle.dev/uploads/files/9c/9c9ade69edd44a529fec17278e5819cee4339b5a/schedule-FILL0-wght400-GRAD0-opsz48-5.svg"
-                  alt=""
-                  width={20}
-                  height={18}
+              <img
+                src="/src/may-i/img/response-time.svg"
+                alt=""
+                width="17"              
               />
               <p>평균 ${reply_time}</p>
-              <Image
-                  src="https://static.shuffle.dev/uploads/files/9c/9c9ade69edd44a529fec17278e5819cee4339b5a/history-FILL0-wght400-GRAD0-opsz48-5.svg"
-                  alt=""
-                  width={20}
-                  height={18}
+              <img
+                src="/src/may-i/img/history.svg"
+                alt=""
+                width="17"
               />
-              <p>최근 ${data.data.last_login} 이내 활동</p>
+              <p>최근 ${last_login} 이내 활동</p>
             </div>
+            <div class="flex justify-end">
+            <button
+              class="text-white bg-indigo-300 w-28 text-center rounded-full p-2 font-semibold text-sm"
+              onclick="clickBtn()"
+            >
+              취재 요청하기
+            </button>
           </div>
-        </div>
-      </div>`
+          </div>`
 
       profileWrap.innerHTML += profileDiv
 
@@ -119,7 +143,7 @@ window.onload = () => {
       hashArr.forEach(hash=>{
         console.log(hashArr);
         const selector = `#tagWrap`
-        const hashTag = `<p class="text-black border rounded-full text-center text-base w-20">${hash}</p>`
+        const hashTag = `<p class="text-black border rounded-full text-center text-xs w-16 p-1 ml-1.5">${hash}</p>`
         document.querySelector(selector).innerHTML += hashTag
       });
 
@@ -128,21 +152,25 @@ window.onload = () => {
 }
 
 const clickBtn = () => {
-    fetch(`${baseUrl}/interview/create-interview/5`,{
-        method:'POST',
-        headers:{
-            'Content-Type': 'application/json',
-            'Authorization' : "5a6fd5a0f759438916a2739a34940abc372c31fb",
-        }
+
+  if(confirm("인터뷰를 요청하시겠습니까?")){
+    const id = JSON.parse(localStorage.getItem('data')).id
+
+    fetch(`${baseUrl}/interview/create-interview/${id}`,{
+      method:'POST',
+      headers:{
+          'Content-Type': 'application/json',
+          'Authorization' : "5a6fd5a0f759438916a2739a34940abc372c31fb",
+      }
     })
     .then((response) => response.json())
     .then((data) => {
-        console.log('성공:', data);
-        confirm("인터뷰를 요청하시겠습니까?");
         window.localStorage.setItem('data', JSON.stringify(data.data));
-        window.location.href = "./proposal-create.html";  
+        window.location.href = "./4-proposal-create.html";  
       })
         .catch((error) => {
         console.error('실패:', error);
         });
+  } 
+    
 }

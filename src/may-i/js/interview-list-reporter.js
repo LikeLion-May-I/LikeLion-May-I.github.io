@@ -19,30 +19,16 @@ window.onload = () => {
                                     <p>${div.title}</p>
                                     <p>${div.deadline}</p>
                                     <p>${div.is_send}</p>
-                            </a>`
 
+                                </a>`
             interviewWrap.innerHTML += interviewDiv
-                    
-        }
-
+        } 
 
     });
- 
-
-
 }
 
 
-const clickBtn = () => {
 
-    fetch("https://jsonplaceholder.typicode.com/posts/1")
-    .then((response) => response.json())
-    .then((data) => {
 
-        console.log((data))
-
-    });
-
-}
 
 
