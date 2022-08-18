@@ -29,7 +29,13 @@ window.onload = () => {
       document.querySelector('#title').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.title}</p>`
       //document.querySelector('#department').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.department}</p>`
       document.querySelector('#purpose').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.purpose}</p>`
-      //형식 어떻게 하냐아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ
+      if(`${data.data.method}` == 1 ){
+        document.querySelector('#method').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">대면</p>`
+      } else if (`${data.data.method}` == 2) {
+        document.querySelector('#method').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">서면</p>`
+      } else {
+        document.querySelector('#method').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">전화</p>`
+      }
       document.querySelector('#amount').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.amount}</p>`
       document.querySelector('#body').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.body}</p>`
       document.querySelector('#file').innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${data.data.file}" target="_blank"></p>`
