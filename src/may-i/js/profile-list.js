@@ -9,11 +9,11 @@ window.onload = () => {
           "Content-Type": "application/json",
         }
     }).then((response) => response.json()).then((data) => {
-        console.log(data.data)
         
         const profileAllWrap = document.querySelector("#profile")
-        data.data.forEach((div, index) => {
+        data.data.filter(x => !x.is_report).forEach((div, index) => {
             var reply_rate = div.reply_rate;
+
 
             if(reply_rate < 0){
                 reply_rate = "정보 없음";
@@ -34,41 +34,111 @@ window.onload = () => {
                     reply_time = "1시간 이내"
                 }
             }
+
+            const loadedLastlogin = new Date(div.last_login);
+            const today = new Date()
+
+            const timedelta = today.getTime() - loadedLastlogin.getTime();
+            
+            const timedeltaform = Math.floor(Math.abs(timedelta / (1000 * 60 * 60 * 24)));
+            console.log(timedeltaform);
+
+
+            if (timedeltaform > 24){
+                last_login = Math.floor(timedelta / 24) + "일";
+            }else{
+                last_login = timedeltaform + "시간";
+            }
+
+            // const formattedTime = `${year}-${month >= 10 ? month : '0' + month}-${date >= 10 ? date : '0' + date}`
+
+            // console.log(formattedTime);
             
             const aTagUrl = "/profile/get-profile-one/"+String(div.id)
-            const profileDiv = `<a class="w-full lg:w-1/3" href= ${baseUrl}/profile/get-profile-one/${div.id}>
-                                    <div class="bg-white shadow-2xl rounded-2xl p-5">
-                                        <img class="flex mb-5 w-8 justify-end" src="https://static.shuffle.dev/uploads/files/9c/9c9ade69edd44a529fec17278e5819cee4339b5a/verified-user-FILL0-wght400-GRAD0-opsz48-1.svg" alt=""><div class="flex items-center mb-4">
-                                        <img class="h-16 w-16 rounded-full object-cover" src=${baseUrl}${div.img} alt=""><div class="pl-4">
-                                        <p class="text-xl font-bold md:w-1/3">${div.name}</p>
-                                        <p class="text-gray-800">${div.department}</p>
+            const profileDiv = `
+                                <div class="${div.id} w-18 py-10" onclick="clickBtn(this)">
+                                    <div class="bg-white shadow-2xl rounded-2xl p-4">
+                                        <div class="flex mb-3 justify-end">
+                                            <img src="https://static.shuffle.dev/uploads/files/9c/9c9ade69edd44a529fec17278e5819cee4339b5a/verified-user-FILL0-wght400-GRAD0-opsz48-1.svg" alt=""/>
                                         </div>
+                                        <div class="flex items-center mb-4">
+                                            <div class="rounded-full object-cover">
+                                                <img 
+                                                    src=${baseUrl}${div.img}
+                                                    alt=""
+                                                    width="90"
+                                                    height="90"
+                                                />
+                                            </div>
+                                            <div class="pl-4">
+                                                <p class="font-bold">${div.name}</p>
+                                                <p class="text-gray-700">${div.department}</p>
+                                            </div>
                                         </div>
-                                        <div class="flex justify-around" id="tagWrap${index}"></div>
-                                        <div class="flex space-x-2">
-                                            <img src="https://static.shuffle.dev/uploads/files/9c/9c9ade69edd44a529fec17278e5819cee4339b5a/mode-comment-FILL0-wght400-GRAD0-opsz48-5.svg" alt="" class="w-6"><p>${reply_rate}</p>
-                                            <img src="https://static.shuffle.dev/uploads/files/9c/9c9ade69edd44a529fec17278e5819cee4339b5a/schedule-FILL0-wght400-GRAD0-opsz48-5.svg" alt="" class="w-6"><p>${reply_time}</p>
-                                            <img src="https://static.shuffle.dev/uploads/files/9c/9c9ade69edd44a529fec17278e5819cee4339b5a/history-FILL0-wght400-GRAD0-opsz48-5.svg" alt="" class="w-8"><p>최근${div.last_login}일 이내</p>
+                                        <div class="flex" id="tagWrap${index}">
+                                        </div>
+                                        <div class="flex justify-evenly space-x-2">
+                                            <img 
+                                                src="./img/comment.svg"
+                                                alt=""
+                                                width="20"
+                                                height="18"
+                                            />
+                                            <p>${reply_rate}</p>
+                                            <img
+                                                src="./img/response-time.svg"
+                                                alt=""
+                                                width="20"
+                                                height="18"
+                                            />
+                                            <p>${reply_time}</p>
+                                            <img 
+                                                src="./img/history.svg"
+                                                alt=""
+                                                width="20"
+                                                height="18"
+                                            />
+                                            <p>최근 ${last_login} 이내</p>
                                         </div>
                                     </div>
                                 </div>`
-
+                        
+                            
             // <p class="leading-loose mb-5 border-2 rounded-full text-center text-black w-24">${div.tag}</p>
-            
 
             profileAllWrap.innerHTML += profileDiv
             
             console.log(div.tag)
 
             const hashArr = div.tag.split(' ');
-            hashArr.forEach(hash=>{
+            hashArr.slice(0,5).forEach(hash=>{
                 const selector = `#tagWrap${index}`
-                const hashTag =`<p class="leading-loose mb-5 border-2 rounded-full text-center text-black w-24">${hash}</p>`
+                const hashTag =`<p class="leading-loose mb-5 border-2 rounded-full text-center text-black w-24 ml-1.5">${hash}</p>`
                 document.querySelector(selector).innerHTML += hashTag
             });
 
         })
 
     });
+
+}
+
+const clickBtn = (obj) => {
+    const id = obj.classList[0];
+
+    console.log(id);
+
+    fetch(`${baseUrl}/profile/get-profile-one/${id}`, {
+        method: 'GET',
+        headers:{
+            'Content-Type': 'application/json',
+        }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        window.localStorage.setItem('data', JSON.stringify(data.data));
+        window.location.href = "./3-profile-detail.html";
+    })
+
 
 }
