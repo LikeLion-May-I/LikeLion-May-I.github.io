@@ -1,6 +1,8 @@
 
 window.onload = () => {
-
+  
+  //var interviewId = localStorage.getItem("id");
+  
   fetch("http://may-i-server.o-r.kr:8000/interview/get-interview/15 ", {
       method: "GET",
       headers: {
