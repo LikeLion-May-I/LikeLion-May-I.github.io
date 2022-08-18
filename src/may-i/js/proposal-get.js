@@ -91,6 +91,14 @@ const checkedInterview = (interviewId, buttonValue) => {
   .then((response) => response.json())
   .then((json) => {
     console.log('성공:', json);
+    
+    var result = confirm("정말로 보내시겠습니까?");
+    if(result){
+        alert("전송 완료되었습니다");
+        window.location.href = "http://127.0.0.1:5500/src/may-i/5-interview-answered-expert.html"
+    }else{
+       
+    }
     })
 
     .catch((error) => {
