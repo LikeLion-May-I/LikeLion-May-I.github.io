@@ -57,7 +57,7 @@ window.onload = () => {
             const aTagUrl = "/profile/get-profile-one/"+String(div.id)
             const profileDiv = `
                                 <div class="${div.id} w-18 py-10" onclick="clickBtn(this)">
-                                    <div class="bg-white shadow-2xl rounded-2xl p-4">
+                                    <div class="bg-white shadow-2xl rounded-2xl p-4" style="cursor:pointer">
                                         <div class="flex mb-3 justify-end">
                                             <img src="https://static.shuffle.dev/uploads/files/9c/9c9ade69edd44a529fec17278e5819cee4339b5a/verified-user-FILL0-wght400-GRAD0-opsz48-1.svg" alt=""/>
                                         </div>
