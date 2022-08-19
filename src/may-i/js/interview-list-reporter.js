@@ -106,6 +106,7 @@ const clickBtn = (obj) => {
     console.log(id);
 
     const token = localStorage.getItem("token");
+    
 
     fetch(`${baseUrl}/interview/get-interview/${id}`, {
         method:'GET',
