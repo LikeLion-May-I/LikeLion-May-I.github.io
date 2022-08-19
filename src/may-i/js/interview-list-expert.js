@@ -10,7 +10,7 @@ window.onload = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "b93590dad6fe00de55a7088efa39c42dd12cf6ee",
+        Authorization: token,
       },
     })
       .then((response) => response.json())
@@ -52,7 +52,7 @@ window.onload = () => {
                                       <p class="w-3/12 flex justify-center">${div.department}</p>
                                       <p class="w-8/12 flex justify-center">${div.title}</p>
                                       <p class="w-1/12 flex justify-center">수락</p>
-                              </a>`;
+                                </a>`;
             interviewWrap2.innerHTML += interviewDiv;
           } else if (`${div.response}` == 2) {
             const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
