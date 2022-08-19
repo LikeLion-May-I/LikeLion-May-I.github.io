@@ -1,7 +1,8 @@
 const baseUrl = "http://may-i-server.o-r.kr:8000"
+const createData = JSON.parse(localStorage.getItem('data'))
 
 window.onload = () => {
-  const createData = JSON.parse(localStorage.getItem('data'))
+  
   //  여기서 local storage 에 저장한 받는이 전문가 id 값 가져오기
 
   let expertName = createData["expert_name"]
