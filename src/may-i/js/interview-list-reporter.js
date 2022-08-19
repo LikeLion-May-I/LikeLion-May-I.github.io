@@ -1,3 +1,4 @@
+const baseUrl = "http://may-i-server.o-r.kr:8000"
 
 window.onload = () => {
 
@@ -7,19 +8,18 @@ window.onload = () => {
         window.location.href = "./1-choice.html" ;
     } else {
 
-        fetch("http://may-i-server.o-r.kr:8000/profile/get-apply-request-all-for-reporter/", {
+        fetch("http://may-i-server.o-r.kr:8000/profile/get-apply-list-for-reporter/", {
             method: "GET",
             headers: {
             "Content-Type": "application/json",
-            "Authorization": "7d1f8745f728e7135041cd8ef8acceb908598006",
+            "Authorization": token,
             }
         }).then((response) => response.json()).then((data) => {
 
-            console.log(data.data)
             const interviewWrap = document.querySelector('#interviewWrap')
-            data.data.forEach(async div=> {
+            data.data[0].forEach(async div=> {
                 
-                const interviewDiv = `<div class="flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html}">
+                const interviewDiv = `<div class="${div.id} flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html" onclick="clickBtn(this)">
                                         <p>${div.name}</p>
                                         <p class=${div.id}>${div.title}</p>
                                         <p class="deadline alive"><input value=${div.deadline} style="display:none;"></p>
@@ -46,7 +46,7 @@ const countDeadline = () => {
     const deadlineTag = document.querySelectorAll('.deadline.alive');
     deadlineTag.forEach((tag, i)=>{
         const deadline = tag.firstChild;
-        console.log(deadline)
+        // console.log(deadline)
         const yearToDay = deadline.value.split("T")[0].split("-").map(x => Number(x));
         const timeToSec = deadline.value.split("T")[1].split(":").map(x => Number(x));
     
@@ -99,6 +99,28 @@ const countDeadline = () => {
     })
 }
 
+const clickBtn = (obj) => {
+
+    const id = obj.classList[0];
+
+    console.log(id);
+
+    const token = localStorage.getItem("token");
+
+    fetch(`${baseUrl}/interview/get-interview/${id}`, {
+        method:'GET',
+        headers:{
+            'Content-Type' : 'application/json',
+            'Authorization' : token
+        }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        
+        window.localStorage.setItem('data', JSON.stringify(data.data));
+        window.location.href = "./4-proposal-get.html";
+    })
+}
 
 
 

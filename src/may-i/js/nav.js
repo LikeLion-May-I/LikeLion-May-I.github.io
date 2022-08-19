@@ -60,11 +60,16 @@ window.addEventListener("load", () => {
 
   //토큰 있으면 sign in 버튼 바꾸기
   const token = localStorage.getItem("token");
+  const is_report = localStorage.getItem("is_report");
+
   if(token){
     const loginBtn =  document.querySelector('#loginBtn');
     loginBtn.innerText = localStorage.getItem("profile_name") + "님";
   }
 
-
-
+  if(is_report == 1){
+    loginBtn.href = "./5-interview-list-reporter.html"; 
+  }else{
+    loginBtn.href =  "./5-interview-list-expert.html"; 
+  }
 });

@@ -75,10 +75,10 @@ window.onload = () => {
                                             </div>
                                             <div class="pl-4">
                                                 <p class="font-bold">${div.name}</p>
-                                                <p class="text-gray-700">${div.department}</p>
+                                                <p class="text-gray-700 w-48">${div.department}</p>
                                             </div>
                                         </div>
-                                        <div class="flex" id="tagWrap${index}">
+                                        <div class="flex w-80" id="tagWrap${index}">
                                         </div>
                                         <div class="flex justify-evenly space-x-2">
                                             <img 
