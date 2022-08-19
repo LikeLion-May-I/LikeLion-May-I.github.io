@@ -58,6 +58,8 @@ window.addEventListener("load", () => {
     alert("준비중");
   });
 
+  //토큰 있으면 sign in 버튼 바꾸기
+
 
 
 
