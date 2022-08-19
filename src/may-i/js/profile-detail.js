@@ -165,7 +165,7 @@ const clickBtn = () => {
       method:'POST',
       headers:{
           'Content-Type': 'application/json',
-          'Authorization' : "5a6fd5a0f759438916a2739a34940abc372c31fb",
+          'Authorization' : token,
       }
     })
     .then((response) => response.json())
@@ -173,9 +173,9 @@ const clickBtn = () => {
         window.localStorage.setItem('data', JSON.stringify(data.data));
         window.location.href = "./4-proposal-create.html";  
       })
-        .catch((error) => {
-        console.error('실패:', error);
-        });
-  } 
+      .catch((error) => {
+      console.error('실패:', error);
+      });
+  }
     
 }

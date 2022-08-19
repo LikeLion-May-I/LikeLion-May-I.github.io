@@ -15,7 +15,7 @@ window.onload = () => {
             "Authorization": token,
             }
         }).then((response) => response.json()).then((data) => {
-
+            console.log(data.data)
             const interviewWrap = document.querySelector('#interviewWrap')
             data.data[0].forEach(async div=> {
                 

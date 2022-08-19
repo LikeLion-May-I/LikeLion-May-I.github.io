@@ -9,6 +9,13 @@ window.onload = () => {
   // 포스트 버튼 달 때
   document.querySelector('#expert_name').innerHTML += `<p class="w-full text-base font-normal outline-none text-black py-2 px-4">${expertName}</p>`
 
+  // input date 현재시간 이후로
+  let dateElement = document.querySelector('#dateValue');
+  let date = new Date(new Date().getTime()+(1000*60*60*24) - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, -5);
+  dateElement.value = date;
+  dateElement.setAttribute("min", date);
+  
+
 }
 
 
@@ -27,8 +34,10 @@ const formFetching = () => {
   
   const formActionUrl = `${baseUrl}/interview/update-interview/` + interviewId
 
-  console.log(formActionUrl)
-  if(!updateInterviewForm.method.value) alert("인터뷰 방식을 입력해주세요!");
+  if(!updateInterviewForm.method.value) {
+    alert("인터뷰 방식을 입력해주세요!");
+    return false;
+  }
   // else if (!updateInterviewForm.title.value) alert("제목을 입력해주세요!");
   // else if (!updateInterviewForm.body.value) alert("본문을 입력해주세요!");
   // else if (!updateInterviewForm.deadline.value) alert("본문을 입력해주세요!");
@@ -43,8 +52,8 @@ const formFetching = () => {
       })
       .then((response) => response.json())
       .then((data) => {
-        // alert("임시저장 성공!");
-        updateInterviewForm.appendchild(`<p>임시 저장 완료</p>`)
+        let saveOnTag = document.querySelector("#saveOn");
+        saveOnTag.innerHTML = "저장 완료"
 
       })
       .catch((error) => {
@@ -56,27 +65,33 @@ const formFetching = () => {
 }
 
 const clickSend = () => {
-  formFetching();
-  // const experUserId = createData["expert_id"]
+  let saveOnTag = document.querySelector("#saveOn");
+
+  if(saveOnTag.innerHTML == "저장 완료"){
+  
+  // // const experUserId = createData["expert_id"]
   const token = localStorage.getItem("token");
   const interviewId = String(createData["id"]);
-  fetch("http://may-i-server.o-r.kr:8000//interview/send-interview/" + interviewId, {
-          method: 'POST',
-          headers: {
-              "Content-Type": "application/json",
-              "Authorization": token,
-          }
-      })
-      .then((response) => response.json())
-      .then((data) => {
-          console.log(data)
-          alert("인터뷰 요청 완료!");
-          window.location.href = "./5-interview-list-reporter.html"
+  console.log(interviewId)
+  fetch("http://may-i-server.o-r.kr:8000/interview/send-interview/" + interviewId, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": token,
+        }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        alert("인터뷰 요청 완료!");
+        window.location.href = "./5-interview-list-reporter.html"
 
-      })
-      .catch((error) => {
-          console.error('실패:', error);
-      });
-
+    })
+    .catch((error) => {
+        console.error('실패:', error);
+    });
+  } else {
+    alert("임시저장을 먼저 진행해주세요!");
+  }
 
 }
