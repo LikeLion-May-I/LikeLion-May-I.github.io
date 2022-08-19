@@ -1,9 +1,9 @@
 
-const baseUrl = "https://may-i-server.o-r.kr:8000"
+const baseUrl = "http://may-i-server.o-r.kr:8000"
 
 window.onload = () => {
 
-    fetch("https://may-i-server.o-r.kr:8000/profile/get-profile-all/5", {
+    fetch("http://may-i-server.o-r.kr:8000/profile/get-profile-all/5", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -40,15 +40,18 @@ window.onload = () => {
 
             const timedelta = today.getTime() - loadedLastlogin.getTime();
             
-            const timedeltaform = Math.floor(Math.abs(timedelta / (1000 * 60 * 60 * 24)));
+            const timedeltaform = Math.floor(Math.abs(timedelta / (1000 * 60 * 60 ))) + 1;
             console.log(timedeltaform);
 
 
             if (timedeltaform > 24){
-                last_login = Math.floor(timedelta / 24) + "일";
+                last_login = Math.floor(timedeltaform / 24) + "일";
+                console.log(last_login);
             }else{
                 last_login = timedeltaform + "시간";
             }
+
+            console.log(last_login);
 
             // const formattedTime = `${year}-${month >= 10 ? month : '0' + month}-${date >= 10 ? date : '0' + date}`
 
@@ -59,7 +62,7 @@ window.onload = () => {
                                 <div class="${div.id} w-18 py-10" onclick="clickBtn(this)">
                                     <div class="bg-white shadow-2xl rounded-2xl p-4" style="cursor:pointer">
                                         <div class="flex mb-3 justify-end">
-                                            <img src="https://static.shuffle.dev/uploads/files/9c/9c9ade69edd44a529fec17278e5819cee4339b5a/verified-user-FILL0-wght400-GRAD0-opsz48-1.svg" alt=""/>
+                                            <img src="http://static.shuffle.dev/uploads/files/9c/9c9ade69edd44a529fec17278e5819cee4339b5a/verified-user-FILL0-wght400-GRAD0-opsz48-1.svg" alt=""/>
                                         </div>
                                         <div class="flex items-center mb-4">
                                             <div class="rounded-full object-cover">

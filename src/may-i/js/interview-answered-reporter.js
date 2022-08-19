@@ -58,7 +58,7 @@ window.onload = () => {
 
 const clickBtn = () => {
 
-    fetch("https://jsonplaceholder.typicode.com/posts/1")
+    fetch("http://jsonplaceholder.typicode.com/posts/1")
     .then((response) => response.json())
     .then((data) => {
 
