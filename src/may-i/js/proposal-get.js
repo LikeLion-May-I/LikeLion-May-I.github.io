@@ -2,12 +2,13 @@
 window.onload = () => {
   
   const id = JSON.parse(localStorage.getItem('data')).id
-  
+  const token = localStorage.getItem("token");
+
   fetch("http://may-i-server.o-r.kr:8000/interview/get-interview/"+id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "b93590dad6fe00de55a7088efa39c42dd12cf6ee",
+        "Authorization": token,
       }
   }).then((response) => response.json()).then((data) => {
 
