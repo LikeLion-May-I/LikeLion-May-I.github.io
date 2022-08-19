@@ -24,7 +24,7 @@ window.onload = () => {
           for(div of data.data[0]){
               if(`${div.is_expired}` == 0) {
                   //요청 인터뷰
-                  const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="/src/may-i/proposal-get.html}">
+                  const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html}">
                                       <p>${div.department}</p>
                                       <p>${div.title}</p>
                                       <p>${div.deadline}</p>
