@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
       </div>
       <div class="w-1/2">
         <Image
-          src="assets/work1.svg"
+          src="./img/work1.svg"
           width={1000}
           height={700}
           objectPosition="center"
@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
     <div class="mx-auto max-w-[1000px] flex w-full h-auto py-12">
       <div class="mx-6 w-1/2">
         <Image
-          src="assets/work3.svg"
+          src="./img/work3.svg"
           width={1000}
           height={850}
           objectPosition="center"
@@ -58,19 +58,19 @@ window.addEventListener("load", () => {
       </div>
       <div class="mx-6 w-1/2">
         <Image
-          src="assets/work4.svg"
+          src="./img/work4.svg"
           width={1000}
           height={300}
           objectPosition="center"
         />
         <Image
-          src="assets/work5.svg"
+          src="./img/work5.svg"
           width={1000}
           height={300}
           objectPosition="center"
         />
         <Image
-          src="assets/work6.svg"
+          src="./img/work6.svg"
           width={1000}
           height={300}
           objectPosition="center"

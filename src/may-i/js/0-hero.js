@@ -1,13 +1,15 @@
-window.addEventListener("load", () => {
-    const hero = ` <main class="relative border">
-      <Image
+{/* <Image
         class="z-[-1]"
         src="./img/bg.svg"
         layout="fill"
         objectFit="cover"
         objectPosition="center"
-      />
-     <div class="mx-auto max-w-[1000px] w-3/4 py-20 md:py-36 px-6 ">
+      /> */}
+
+window.addEventListener("load", () => {
+    const hero = ` <main class="relative border">
+      
+     <div style="bacground-image:url(./img/bg.svg)" class="mx-auto max-w-[1000px] w-3/4 py-20 md:py-36 px-6 ">
         <div class="text-left w-full flex text-2xl md:text-4xl font-bold text-gray-900">
           <span class="block">
             당신의 전문가에게
