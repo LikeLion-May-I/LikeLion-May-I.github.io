@@ -13,6 +13,7 @@ window.onload = () => {
 
       console.log(data.data) 
 
+      
       //전문가일때(is_report==0)는 보낸이/리포터이름, 일반일일때(is_report==1)는 받는이/전문가이름
       if (data.data.is_report == 0) {
           document.querySelector('#recipientOrsender').innerHTML += `<p class="font-semibold justify-end flex py-5">보낸이</p>`
