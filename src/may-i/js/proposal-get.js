@@ -1,117 +1,161 @@
-
 window.onload = () => {
-  
-  const id = JSON.parse(localStorage.getItem('data')).id
-  
-  fetch("http://may-i-server.o-r.kr:8000/interview/get-interview/"+id, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "b93590dad6fe00de55a7088efa39c42dd12cf6ee",
-      }
-  }).then((response) => response.json()).then((data) => {
+  //var interviewId = localStorage.getItem("id");
 
-      console.log(data.data) 
+  fetch("http://may-i-server.o-r.kr:8000/interview/get-interview/15 ", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "5a6fd5a0f759438916a2739a34940abc372c31fb",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.data);
 
       //전문가일때(is_report==0)는 보낸이/리포터이름, 일반일일때(is_report==1)는 받는이/전문가이름
       if (data.data.is_report == 0) {
-          document.querySelector('#recipientOrsender').innerHTML += `<p class="font-semibold justify-end flex py-5">보낸이</p>`
-          document.querySelector('#name').innerHTML += `<p class="w-full text-base font-normal outline-none text-black justify-start px-4 py-3">${data.data.reporter_user}</p>`
-
-          document.querySelector('#button').innerHTML += `
+        document.querySelector(
+          "#recipientOrsender"
+        ).innerHTML += `<p class="font-semibold justify-end flex py-5">보낸이</p>`;
+        document.querySelector(
+          "#name"
+        ).innerHTML += `<p class="w-full text-base font-normal outline-none text-black justify-start px-4 py-3">${data.data.reporter_user}</p>`;
+        document.querySelector("#button").innerHTML += `
           <button class="border p-2 w-28 rounded-full text-black" value="2" onclick="checkedInterview(${data.data.id}, 2)">거절</button>
           <button class="border p-2 w-28 rounded-full text-black" value="3" onclick="checkedInterview(${data.data.id}, 3)">보류</button>
-          <button class="border bg-violet-300 p-2 w-28 rounded-full text-black value="1" onclick="checkedInterview(${data.data.id}, 1)">수락</button>`
+          <button class="border bg-violet-300 p-2 w-28 rounded-full text-black value="1" onclick="checkedInterview(${data.data.id}, 1)">수락</button>`;
       } else {
-          document.querySelector('#recipientOrsender').innerHTML += `<p class="font-semibold justify-end flex">받는이</p>`
-          document.querySelector('#name').innerHTML += `<p class="w-full text-base font-normal outline-none text-black py-2 px-4">${data.data.expert_name}</p>`
+        document.querySelector(
+          "#recipientOrsender"
+        ).innerHTML += `<p class="font-semibold justify-end flex">받는이</p>`;
+        document.querySelector(
+          "#name"
+        ).innerHTML += `<p class="w-full text-base font-normal outline-none text-black py-2 px-4">${data.data.expert_name}</p>`;
       }
 
-      document.querySelector('#title').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-3">${data.data.title}</p>`
+      document.querySelector(
+        "#title"
+      ).innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-3">${data.data.title}</p>`;
       //document.querySelector('#department').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.department}</p>`
-      document.querySelector('#purpose').innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black justify-start py-2">${data.data.purpose}</p>`
-      if(`${data.data.method}` == 1 ){
-        document.querySelector('#method').innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black py-2">대면</p>`
+      document.querySelector(
+        "#purpose"
+      ).innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black justify-start py-2">${data.data.purpose}</p>`;
+      if (`${data.data.method}` == 1) {
+        document.querySelector(
+          "#method"
+        ).innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black py-2">대면</p>`;
       } else if (`${data.data.method}` == 2) {
-        document.querySelector('#method').innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black py-2">서면</p>`
+        document.querySelector(
+          "#method"
+        ).innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black py-2">서면</p>`;
       } else {
-        document.querySelector('#method').innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black py-2">전화</p>`
+        document.querySelector(
+          "#method"
+        ).innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black py-2">전화</p>`;
       }
-      document.querySelector('#amount').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.amount}</p>`
-      document.querySelector('#body').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.body}</p>`
-      document.querySelector('#file').innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${data.data.file}" target="_blank"></p>`
-      document.querySelector('#url').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.url}</p>`
-      document.querySelector('#deadline').innerHTML += `<p class="deadline alive text-base font-normal outline-none text-black px-3 py-3"><input value=${data.data.deadline} style="display:none;"></p>`
-          
+      document.querySelector(
+        "#amount"
+      ).innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.amount}</p>`;
+      document.querySelector(
+        "#body"
+      ).innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.body}</p>`;
+      document.querySelector(
+        "#file"
+      ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${data.data.file}" target="_blank"></p>`;
+      document.querySelector(
+        "#url"
+      ).innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.url}</p>`;
+      document.querySelector(
+        "#deadline"
+      ).innerHTML += `<p class="deadline alive text-base font-normal outline-none text-black px-3 py-3"><input value=${data.data.deadline} style="display:none;"></p>`;
+
       countDeadline();
-      setInterval(() =>{
-          countDeadline()}, 1000);
-
-  });
-
-
-
-}
+      setInterval(() => {
+        countDeadline();
+      }, 1000);
+    });
+};
 
 const countDeadline = () => {
-
   let today = new Date();
 
-  const deadlineTag = document.querySelectorAll('.deadline.alive');
-  deadlineTag.forEach((tag, i)=>{
-      const deadline = tag.firstChild;
-      console.log(deadline)
-      const yearToDay = deadline.value.split("T")[0].split("-").map(x => Number(x));
-      const timeToSec = deadline.value.split("T")[1].split(":").map(x => Number(x));
-  
-      let end = new Date(yearToDay[0],yearToDay[1]-1,yearToDay[2],
-          timeToSec[0], timeToSec[1], timeToSec[2]);
-      let gap = (end.getTime() - today.getTime()) //sec
+  const deadlineTag = document.querySelectorAll(".deadline.alive");
+  deadlineTag.forEach((tag, i) => {
+    const deadline = tag.firstChild;
+    console.log(deadline);
+    const yearToDay = deadline.value
+      .split("T")[0]
+      .split("-")
+      .map((x) => Number(x));
+    const timeToSec = deadline.value
+      .split("T")[1]
+      .split(":")
+      .map((x) => Number(x));
 
-      // 만료
-      if (gap<=0){
-          // 포스트 요청 보내고
-          const dataTag = tag.previousElementSibling;
-          
-          fetch("http://may-i-server.o-r.kr:8000/interview/update-reply/"+ dataTag.classList[0], {
-              method: 'PATCH', // 또는 'PUT'
-            })
-            .then((response) => response.json())
-            .then((data) => {
-              alert(dataTag.innerText + "인터뷰 만료");
-            })
-            .catch((error) => {
-              console.error('실패:', error);
-            });
+    let end = new Date(
+      yearToDay[0],
+      yearToDay[1] - 1,
+      yearToDay[2],
+      timeToSec[0],
+      timeToSec[1],
+      timeToSec[2]
+    );
+    let gap = end.getTime() - today.getTime(); //sec
 
-          // 태그 업데이트 중단
-          // alive 클래스 remove
-          tag.classList.remove('alive');
-          tag.innerHTML = "기한 만료";
+    // 만료
+    if (gap <= 0) {
+      // 포스트 요청 보내고
+      const dataTag = tag.previousElementSibling;
 
-      } else {
-          const days = Math.floor(gap / (1000 * 60 * 60 * 24)); // 일
-          const hour = String(Math.floor((gap/ (1000 * 60 *60 )) % 24 )).padStart(2, "0"); // 시
-          const minutes = String(Math.floor((gap  / (1000 * 60 )) % 60 )).padStart(2, "0"); // 분
-          const second = String(Math.floor((gap / 1000 ) % 60)).padStart(2, "0"); // 초
-          
-          let innerLine = ""
-          if     (days) innerLine += `${days}d `;
-          else if(!hour) innerLine += `${!hour}d `;
-          
-          innerLine += `${minutes}m ${second}s`;
-          
-          deadlineTag[i].innerHTML = `<input value=${deadline.value} style="display:none;"></input>${innerLine}`
-      }
-      
-  })
-}
+      fetch(
+        "http://may-i-server.o-r.kr:8000/interview/update-reply/" +
+          dataTag.classList[0],
+        {
+          method: "PATCH", // 또는 'PUT'
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          alert(dataTag.innerText + "인터뷰 만료");
+        })
+        .catch((error) => {
+          console.error("실패:", error);
+        });
+
+      // 태그 업데이트 중단
+      // alive 클래스 remove
+      tag.classList.remove("alive");
+      tag.innerHTML = "기한 만료";
+    } else {
+      const days = Math.floor(gap / (1000 * 60 * 60 * 24)); // 일
+      const hour = String(Math.floor((gap / (1000 * 60 * 60)) % 24)).padStart(
+        2,
+        "0"
+      ); // 시
+      const minutes = String(Math.floor((gap / (1000 * 60)) % 60)).padStart(
+        2,
+        "0"
+      ); // 분
+      const second = String(Math.floor((gap / 1000) % 60)).padStart(2, "0"); // 초
+
+      let innerLine = "";
+      if (days) innerLine += `${days}d `;
+      else if (!hour) innerLine += `${!hour}d `;
+
+      innerLine += `${minutes}m ${second}s`;
+
+      deadlineTag[
+        i
+      ].innerHTML = `<input value=${deadline.value} style="display:none;"></input>${innerLine}`;
+    }
+  });
+};
 
 // const sendInterview = (interviewId) => {
 
 //   var now = new Date();
 
-//   const data = { 
+//   const data = {
 //     send_date: now,
 //     check_date:null,
 //     response:null,
@@ -136,35 +180,33 @@ const countDeadline = () => {
 // }
 
 const checkedInterview = (interviewId, buttonValue) => {
-  fetch(`http://may-i-server.o-r.kr:8000/interview/checked-interview/${interviewId}`, {
-  method: 'PATCH',
-  body: JSON.stringify({
-    response: buttonValue,
-    hold_reason: "",
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => {
-    console.log('성공:', json);
-    
-    var result = confirm("정말로 보내시겠습니까?");
-    if(result){
-        alert("전송 완료되었습니다");
-        window.location.href = "http://127.0.0.1:5500./5-interview-answered-expert.html"
-    }else{
-       
+  fetch(
+    `http://may-i-server.o-r.kr:8000/interview/checked-interview/${interviewId}`,
+    {
+      method: "PATCH",
+      body: JSON.stringify({
+        response: buttonValue,
+        hold_reason: "",
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
     }
+  )
+    .then((response) => response.json())
+    .then((json) => {
+      console.log("성공:", json);
+
+      var result = confirm("정말로 보내시겠습니까?");
+      if (result) {
+        alert("전송 완료되었습니다");
+        window.location.href =
+          "http://127.0.0.1:5500./5-interview-answered-expert.html";
+      } else {
+      }
     })
 
     .catch((error) => {
-    console.error('실패:', error);
+      console.error("실패:", error);
     });
-  
-}
-
-
-
-
+};
