@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
         <Image
             style="cursor: pointer"
             id="homeTab"
-            src="/src/may-i/img/landing_page1_MayI_logo.svg"
+            src="./img/landing_page1_MayI_logo.svg"
             alt="logo"
             width={100}
             height={80}

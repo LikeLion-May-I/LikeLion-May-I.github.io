@@ -19,7 +19,7 @@ window.onload = () => {
             const interviewWrap = document.querySelector('#interviewWrap')
             data.data.forEach(async div=> {
                 
-                const interviewDiv = `<div class="flex p-3 justify-around text-base text-black w-full space-x-10" href="/src/may-i/proposal-get.html}">
+                const interviewDiv = `<div class="flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html}">
                                         <p>${div.name}</p>
                                         <p class=${div.id}>${div.title}</p>
                                         <p class="deadline alive"><input value=${div.deadline} style="display:none;"></p>

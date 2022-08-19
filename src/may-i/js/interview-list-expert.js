@@ -1,3 +1,4 @@
+const BASE_URL = "http://may-i-server.o-r.kr:8000"
 
 window.onload = () => {
 
@@ -6,11 +7,11 @@ window.onload = () => {
         alert("로그인이 필요합니다!")
         window.location.href = "./1-choice.html" ;
     } else {
-      fetch("http://127.0.0.1:8000/profile/get-apply-list-for-expert/", {
+      fetch(`${BASE_URL}/profile/get-apply-list-for-expert/`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "f72bc57855834abe4991d380a35866bd09645317",
+            "Authorization": token,
           }
       }).then((response) => response.json()).then((data) => {
 
@@ -85,21 +86,9 @@ window.onload = () => {
 
       });
     
+
     }
 
-
-}
-
-
-const clickBtn = () => {
-
-    fetch("https://jsonplaceholder.typicode.com/posts/1")
-    .then((response) => response.json())
-    .then((data) => {
-
-        console.log((data))
-
-    });
 
 }
 

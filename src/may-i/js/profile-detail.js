@@ -109,19 +109,19 @@ window.onload = () => {
             
             <div class="flex justify-evenly mb-2 text-sm">
               <img
-                src="/src/may-i/img/comment.svg"
+                src="./img/comment.svg"
                 alt=""
                 width="15"
               />
               <p>응답률 ${reply_rate}</p>
               <img
-                src="/src/may-i/img/response-time.svg"
+                src="./img/response-time.svg"
                 alt=""
                 width="17"              
               />
               <p>평균 ${reply_time}</p>
               <img
-                src="/src/may-i/img/history.svg"
+                src="./img/history.svg"
                 alt=""
                 width="17"
               />
