@@ -1,9 +1,9 @@
 
-const baseUrl = "http://may-i-server.o-r.kr:8000"
+const baseUrl = "https://may-i-server.o-r.kr:8000"
 
 window.onload = () => {
 
-    fetch("http://may-i-server.o-r.kr:8000/profile/get-profile-all/5", {
+    fetch("https://may-i-server.o-r.kr:8000/profile/get-profile-all/5", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
