@@ -15,41 +15,97 @@ window.onload = () => {
 
       //전문가일때(is_report==0)는 보낸이/리포터이름, 일반일일때(is_report==1)는 받는이/전문가이름
       if (data.data.is_report == 0) {
-          document.querySelector('#recipientOrsender').innerHTML += `<p class="font-semibold py-3">보낸이</p>`
-          document.querySelector('#name').innerHTML += `<p class="w-full text-base font-normal outline-none text-black py-2 px-4">${data.data.reporter_user}</p>`
+          document.querySelector('#recipientOrsender').innerHTML += `<p class="font-semibold justify-end flex py-5">보낸이</p>`
+          document.querySelector('#name').innerHTML += `<p class="w-full text-base font-normal outline-none text-black justify-start px-4 py-3">${data.data.reporter_user}</p>`
+
           document.querySelector('#button').innerHTML += `
           <button class="border p-2 w-28 rounded-full text-black" value="2" onclick="checkedInterview(${data.data.id}, 2)">거절</button>
           <button class="border p-2 w-28 rounded-full text-black" value="3" onclick="checkedInterview(${data.data.id}, 3)">보류</button>
           <button class="border bg-violet-300 p-2 w-28 rounded-full text-black value="1" onclick="checkedInterview(${data.data.id}, 1)">수락</button>`
-  
-
       } else {
-          document.querySelector('#recipientOrsender').innerHTML += `<p class="font-semibold py-2">받는이</p>`
+          document.querySelector('#recipientOrsender').innerHTML += `<p class="font-semibold justify-end flex">받는이</p>`
           document.querySelector('#name').innerHTML += `<p class="w-full text-base font-normal outline-none text-black py-2 px-4">${data.data.expert_name}</p>`
       }
 
-      document.querySelector('#title').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.title}</p>`
+      document.querySelector('#title').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-3">${data.data.title}</p>`
       //document.querySelector('#department').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.department}</p>`
-      document.querySelector('#purpose').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.purpose}</p>`
+      document.querySelector('#purpose').innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black justify-start py-2">${data.data.purpose}</p>`
       if(`${data.data.method}` == 1 ){
-        document.querySelector('#method').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">대면</p>`
+        document.querySelector('#method').innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black py-2">대면</p>`
       } else if (`${data.data.method}` == 2) {
-        document.querySelector('#method').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">서면</p>`
+        document.querySelector('#method').innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black py-2">서면</p>`
       } else {
-        document.querySelector('#method').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">전화</p>`
+        document.querySelector('#method').innerHTML += `<p class="w-full px-3 text-base font-normal outline-none text-black py-2">전화</p>`
       }
       document.querySelector('#amount').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.amount}</p>`
       document.querySelector('#body').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.body}</p>`
       document.querySelector('#file').innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${data.data.file}" target="_blank"></p>`
       document.querySelector('#url').innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.url}</p>`
+      document.querySelector('#deadline').innerHTML += `<p class="deadline alive text-base font-normal outline-none text-black px-3 py-3"><input value=${data.data.deadline} style="display:none;"></p>`
           
-      
+      countDeadline();
+      setInterval(() =>{
+          countDeadline()}, 1000);
+
   });
 
 
 
 }
 
+const countDeadline = () => {
+
+  let today = new Date();
+
+  const deadlineTag = document.querySelectorAll('.deadline.alive');
+  deadlineTag.forEach((tag, i)=>{
+      const deadline = tag.firstChild;
+      console.log(deadline)
+      const yearToDay = deadline.value.split("T")[0].split("-").map(x => Number(x));
+      const timeToSec = deadline.value.split("T")[1].split(":").map(x => Number(x));
+  
+      let end = new Date(yearToDay[0],yearToDay[1]-1,yearToDay[2],
+          timeToSec[0], timeToSec[1], timeToSec[2]);
+      let gap = (end.getTime() - today.getTime()) //sec
+
+      // 만료
+      if (gap<=0){
+          // 포스트 요청 보내고
+          const dataTag = tag.previousElementSibling;
+          
+          fetch("http://may-i-server.o-r.kr:8000/interview/update-reply/"+ dataTag.classList[0], {
+              method: 'PATCH', // 또는 'PUT'
+            })
+            .then((response) => response.json())
+            .then((data) => {
+              alert(dataTag.innerText + "인터뷰 만료");
+            })
+            .catch((error) => {
+              console.error('실패:', error);
+            });
+
+          // 태그 업데이트 중단
+          // alive 클래스 remove
+          tag.classList.remove('alive');
+          tag.innerHTML = "기한 만료";
+
+      } else {
+          const days = Math.floor(gap / (1000 * 60 * 60 * 24)); // 일
+          const hour = String(Math.floor((gap/ (1000 * 60 *60 )) % 24 )).padStart(2, "0"); // 시
+          const minutes = String(Math.floor((gap  / (1000 * 60 )) % 60 )).padStart(2, "0"); // 분
+          const second = String(Math.floor((gap / 1000 ) % 60)).padStart(2, "0"); // 초
+          
+          let innerLine = ""
+          if     (days) innerLine += `${days}d `;
+          else if(!hour) innerLine += `${!hour}d `;
+          
+          innerLine += `${minutes}m ${second}s`;
+          
+          deadlineTag[i].innerHTML = `<input value=${deadline.value} style="display:none;"></input>${innerLine}`
+      }
+      
+  })
+}
 
 // const sendInterview = (interviewId) => {
 
