@@ -24,11 +24,11 @@ window.onload = () => {
                 // 요청 데이터
                 if (`${div.is_expired}` == 0) {
                 
-                    const interviewDiv = `<div class="${div.id} flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html" onclick="clickBtn(this)">
-                                            <p>${div.name}</p>
-                                            <p class=${div.id}>${div.title}</p>
-                                            <p class="deadline alive"><input value=${div.deadline} style="display:none;"></p>
-                                            <p>요청</p>
+                    const interviewDiv = `<div class="${div.id} flex p-3 justify-around text-sm text-black w-full space-x-10" href="./proposal-get.html" onclick="clickBtn(this)">
+                                            <p class="w-2/12 flex justify-center">${div.name}</p>
+                                            <p class="${div.id} w-5/12 flex justify-center">${div.title}</p>
+                                            <p class="deadline alive w-2/12 deadline alive flex justify-center"><input value=${div.deadline} style="display:none;"></p>
+                                            <p class="w-1/12 flex justify-center">요청</p>
                                         </div>`;
                     interviewWrap1.innerHTML += interviewDiv;
 
@@ -39,7 +39,7 @@ window.onload = () => {
 
                 } else { 
                     const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="./proposal-get.html}">
-                                                <p class="w-3/12 flex justify-center">${div.department}</p>
+                                                <p class="w-3/12 flex justify-center">${div.name}</p>
                                                 <p class="w-8/12 flex justify-center">${div.title}</p>
                                                 <p class="w-1/12 flex justify-center">만기</p>
                                         </a>`;
@@ -51,7 +51,7 @@ window.onload = () => {
 
             data.data[1].forEach(async div=> {
                 const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
-                                      <p class="w-3/12 flex justify-center">${div.department}</p>
+                                      <p class="w-3/12 flex justify-center">${div.name}</p>
                                       <p class="w-8/12 flex justify-center">${div.title}</p>
                                       <p class="w-1/12 flex justify-center">${responseList[div.response]}</p>
                                 </a>`;
