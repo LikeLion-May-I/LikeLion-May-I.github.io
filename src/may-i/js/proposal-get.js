@@ -1,13 +1,16 @@
-window.onload = () => {
-  //var interviewId = localStorage.getItem("id");
+const BASE_URL = "http://may-i-server.o-r.kr:8000";
 
-  fetch("http://may-i-server.o-r.kr:8000/interview/get-interview/15 ", {
-    method: "GET",
-    headers: {
+window.onload = () => {
+  var interviewId = localStorage.getItem("id");
+  const token = localStorage.getItem("token");
+  if(!token) {
+    alert("로그인이 필요합니다!");
+    window.location.href="./1-choice.html";
+  } else {
+    fetch(`${BASE_URL}/interview/get-interview/${interviewId}`, {
       "Content-Type": "application/json",
-      Authorization: "5a6fd5a0f759438916a2739a34940abc372c31fb",
-    },
-  })
+      Authorization: token,
+    })
     .then((response) => response.json())
     .then((data) => {
       console.log(data.data);
@@ -150,7 +153,7 @@ const countDeadline = () => {
     }
   });
 };
-
+};
 // const sendInterview = (interviewId) => {
 
 //   var now = new Date();
@@ -210,3 +213,4 @@ const checkedInterview = (interviewId, buttonValue) => {
       console.error("실패:", error);
     });
 };
+ㄴ
