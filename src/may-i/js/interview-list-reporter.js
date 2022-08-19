@@ -1,37 +1,39 @@
 
 window.onload = () => {
 
-    let = deadline =[]
-    fetch("http://may-i-server.o-r.kr:8000/profile/get-apply-request-all-for-reporter/", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "7d1f8745f728e7135041cd8ef8acceb908598006",
-        }
-    }).then((response) => response.json()).then((data) => {
+    const token = localStorage.getItem("token");
+    if(!token){
+        alert("로그인이 필요합니다!")
+        window.location.href = "./1-choice.html" ;
+    } else {
 
-        console.log(data.data)
-        const interviewWrap = document.querySelector('#interviewWrap')
-        data.data.forEach(async div=> {
-            
-            const interviewDiv = `<div class="flex p-3 justify-around text-base text-black w-full space-x-10" href="/src/may-i/proposal-get.html}">
-                                    <p>${div.name}</p>
-                                    <p class=${div.id}>${div.title}</p>
-                                    <p class="deadline alive"><input value=${div.deadline} style="display:none;"></p>
-                                    <p>요청</p>
-                                </div>`
-            interviewWrap.innerHTML += interviewDiv
+        fetch("http://may-i-server.o-r.kr:8000/profile/get-apply-request-all-for-reporter/", {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json",
+            "Authorization": "7d1f8745f728e7135041cd8ef8acceb908598006",
+            }
+        }).then((response) => response.json()).then((data) => {
+
+            console.log(data.data)
+            const interviewWrap = document.querySelector('#interviewWrap')
+            data.data.forEach(async div=> {
+                
+                const interviewDiv = `<div class="flex p-3 justify-around text-base text-black w-full space-x-10" href="/src/may-i/proposal-get.html}">
+                                        <p>${div.name}</p>
+                                        <p class=${div.id}>${div.title}</p>
+                                        <p class="deadline alive"><input value=${div.deadline} style="display:none;"></p>
+                                        <p>요청</p>
+                                    </div>`
+                interviewWrap.innerHTML += interviewDiv
+            })
+
+            countDeadline();
+            setInterval(() =>{
+                countDeadline()}, 1000);
         })
+    }
 
-        countDeadline();
-        setInterval(() =>{
-            countDeadline()}, 1000);
-    })
-
-    
-    
-
-    
 }
 
 

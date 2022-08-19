@@ -152,8 +152,13 @@ window.onload = () => {
 }
 
 const clickBtn = () => {
-
-  if(confirm("인터뷰를 요청하시겠습니까?")){
+  
+  const token = localStorage.getItem("token");
+  const is_report = localStorage.getItem("is_report");
+  if (!token || !Number(is_report)){
+    alert("리포터로 로그인이 필요합니다!")
+    window.location.href = "./1-choice.html" ;
+  } else if(confirm("인터뷰를 요청하시겠습니까?")){
     const id = JSON.parse(localStorage.getItem('data')).id
 
     fetch(`${baseUrl}/interview/create-interview/${id}`,{
