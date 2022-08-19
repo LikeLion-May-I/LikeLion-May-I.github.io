@@ -1,3 +1,5 @@
+const BASE_URL = "http://may-i-server.o-r.kr:8000";
+
 window.onload = () => {
     const token = localStorage.getItem("token");
     if(!token){
@@ -5,7 +7,7 @@ window.onload = () => {
         window.location.href = "./1-choice.html" ;
     } else {
 
-        fetch("http://may-i-server.o-r.kr:8000/profile/get-apply-list-for-reporter/", {
+        fetch(`${BASE_URL}/profile/get-apply-list-for-reporter/`, {
             method: "GET",
             headers: {
             "Content-Type": "application/json",
@@ -13,23 +15,62 @@ window.onload = () => {
             }
         }).then((response) => response.json()).then((data) => {
             console.log(data.data)
-            const interviewWrap = document.querySelector('#interviewWrap')
-            data.data[0].forEach(async div=> {
-                
-                const interviewDiv = `<div class="${div.id} flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html" onclick="clickBtn(this)">
-                                        <p>${div.name}</p>
-                                        <p class=${div.id}>${div.title}</p>
-                                        <p class="deadline alive"><input value=${div.deadline} style="display:none;"></p>
-                                        <p>요청</p>
-                                    </div>`;
-          interviewWrap.innerHTML += interviewDiv;
-        });
+            const interviewWrap1 = document.getElementById("interviewWrap1");
+            const interviewWrap2 = document.getElementById("interviewWrap2");
+            interviewWrap2.style.display = "none";
 
-        countDeadline();
-        setInterval(() => {
-          countDeadline();
-        }, 1000);
+            data.data[0].forEach(async div=> {
+
+                // 요청 데이터
+                if (`${div.is_expired}` == 0) {
+                
+                    const interviewDiv = `<div class="${div.id} flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html" onclick="clickBtn(this)">
+                                            <p>${div.name}</p>
+                                            <p class=${div.id}>${div.title}</p>
+                                            <p class="deadline alive"><input value=${div.deadline} style="display:none;"></p>
+                                            <p>요청</p>
+                                        </div>`;
+                    interviewWrap1.innerHTML += interviewDiv;
+
+                    countDeadline();
+                    setInterval(() => {
+                        countDeadline();
+                    }, 1000);
+
+                } else { 
+                    const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="./proposal-get.html}">
+                                                <p class="w-3/12 flex justify-center">${div.department}</p>
+                                                <p class="w-8/12 flex justify-center">${div.title}</p>
+                                                <p class="w-1/12 flex justify-center">만기</p>
+                                        </a>`;
+                    interviewWrap2.innerHTML += interviewDiv;
+                }
+            });
+
+            const responseList = {1:"거절", 2:"보류", 3:"수락"};
+
+            data.data[1].forEach(async div=> {
+                const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
+                                      <p class="w-3/12 flex justify-center">${div.department}</p>
+                                      <p class="w-8/12 flex justify-center">${div.title}</p>
+                                      <p class="w-1/12 flex justify-center">${responseList[div.response]}</p>
+                                </a>`;
+                interviewWrap2.innerHTML += interviewDiv;
+            })
       });
+
+      const answered = () => {
+        document.getElementById("interviewWrap1").style.display = "none";
+        document.getElementById("interviewWrap2").style.display = "block";
+      };
+
+      const request = () => {
+        document.getElementById("interviewWrap1").style.display = "block";
+        document.getElementById("interviewWrap2").style.display = "none";
+      };
+
+      document.getElementById("answered").addEventListener("click", answered);
+      document.getElementById("request").addEventListener("click", request);
   }
 };
 
