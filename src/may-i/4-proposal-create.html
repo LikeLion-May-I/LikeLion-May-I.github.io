@@ -8,33 +8,35 @@
     <script src="./js/proposal-create.js"></script>
     <script src="./js/nav.js"></script>
     <script src="./js/myPageSideBar.js"></script>
-    
+
     <title>Tailwind Starter</title>
   </head>
 
   <body>
+    <div id="navDiv"></div>
 
-    <div id='navDiv'></div>
-    
     <div class="container mx-auto">
       <div class="flex justify-center flex-wrap">
         <div class="py-10 w-3/4 flex">
-      
-          <div id='myPageSideBar'></div>
-            
+          <div id="myPageSideBar"></div>
+
           <div class="flex justify-center w-9/12 py-10">
             <div class="bg-white rounded-2xl shadow-2xl w-full p-5">
               <section class="flex justify-center">
                 <div class="w-full">
-                  <form method="POST" enctype="multipart/form-data" id="updateInterviewForm" name="updateInterviewForm" class="overflow-hidden bg-white" >
+                  <form
+                    method="POST"
+                    enctype="multipart/form-data"
+                    id="updateInterviewForm"
+                    name="updateInterviewForm"
+                    class="overflow-hidden bg-white"
+                  >
                     <div class="border-coolGray-100">
                       <div
                         class="flex flex-wrap items-center justify-center mb-3"
                       >
                         <div class="w-full md:w-auto p-2 text-center">
-                          <h2 class="font-semibold text-2xl">
-                            May I 제안서
-                          </h2>
+                          <h2 class="font-semibold text-2xl">May I 제안서</h2>
                         </div>
                         <div class="w-full md:w-auto p-2">
                           <div
@@ -48,9 +50,14 @@
                       <div class="w-full">
                         <div class="flex flex-wrap -m-3">
                           <div class="w-full md:w-1/6" id="recipientOrsender">
-                            <p class="font-semibold justify-end flex p-4">받는이</p>
+                            <p class="font-semibold justify-end flex p-4">
+                              받는이
+                            </p>
                           </div>
-                          <div class="w-max md:flex-1 p-3 py-2" id="expert_name">
+                          <div
+                            class="w-max md:flex-1 p-3 py-2"
+                            id="expert_name"
+                          >
                             <!-- <p class="w-full text-base font-normal outline-none text-black py-2 px-4">
                               김산보
                             </p> -->
@@ -63,14 +70,16 @@
                       <div class="w-full">
                         <div class="flex flex-wrap -m-3">
                           <div class="w-full md:w-1/6 p-3">
-                            <p class="font-semibold flex justify-end py-2">제목</p>
+                            <p class="font-semibold flex justify-end py-2">
+                              제목
+                            </p>
                           </div>
                           <div class="md:flex-1 p-3 w-full" id="title">
                             <input
                               class="w-full text-sm text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg shadow-input py-2 px-4"
                               type="text"
                               placeholder="백신여권, 한국에도 도입해야 하는가?"
-                              name = "title"
+                              name="title"
                             />
                           </div>
                         </div>
@@ -100,12 +109,12 @@
                           <div class="w-full p-3 md:w-1/6 flex justify-end p-3">
                             <p class="font-semibold py-1">용도</p>
                           </div>
-                          <div class="w-full p-3 md:flex-1"id="purpose">
+                          <div class="w-full p-3 md:flex-1" id="purpose">
                             <input
                               class="w-full px-4 text-sm text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg py-2"
                               type="text"
                               placeholder="전문가 의견 기고"
-                              name = "purpose"
+                              name="purpose"
                             />
                           </div>
                         </div>
@@ -149,7 +158,9 @@
                       <div class="w-full">
                         <div class="flex flex-wrap -m-3">
                           <div class="w-full p-3 md:w-1/6 flex justify-end">
-                            <p class="text-coolGray-800 font-semibold py-1">분량</p>
+                            <p class="text-coolGray-800 font-semibold py-1">
+                              분량
+                            </p>
                           </div>
                           <div class="w-full md:flex-1 p-3" id="amount">
                             <input
@@ -157,7 +168,6 @@
                               type="text"
                               placeholder="워드 1페이지(11pt)"
                               name="amount"
-
                             />
                           </div>
                         </div>
@@ -175,7 +185,6 @@
                               class="block w-full p-6 text-sm text-coolGray-900 font-normal outline-none border border-coolGray-200 rounded-lg resize-none h-64 py-2"
                               placeholder="안녕하세요.&#13;&#10;저는 중앙대학교 영자신문사 중앙헤럴드 문화부 기자 김중앙입니다.&#13;&#10;&#13;&#10;저희 중앙헤럴드에서는 이번 6월 호에 ‘백신여권, 한국에도 도입해야 하는가?’를 주제로 찬반양측의 의견을 담은 글을 작성하고자 합니다.&#13;&#10;이에 교수님의 견해를 담은 서면 인터뷰를 요청드리는 바입니다.&#13;&#10;&#13;&#10;인터뷰가 가능하시다면, 7월 13일까지 reporter@cau.ac.kr 주소로 원고를 보내주시기 바랍니다. 양식은 없으며, 분량은 워드 기준 1p입니다.&#13;&#10;&#13;&#10;읽어주셔서 감사합니다.&#13;&#10;좋은 하루 보내시길 바랍니다."
                               name="body"
-
                             ></textarea>
                           </div>
                         </div>
@@ -191,8 +200,15 @@
                             </p>
                           </div>
                           <div class="w-full md:flex-1 p-3">
-                            <div class="relative items-center justify-center text-center text-green-500 border border-coolGray-200 rounded-lg flex justify-between p-3">
-                              <p class="mb-1 text-sm text-coolGray-800 font-medium" id="fileName">없음</p>
+                            <div
+                              class="relative items-center justify-center text-center text-green-500 border border-coolGray-200 rounded-lg flex justify-between p-3"
+                            >
+                              <p
+                                class="mb-1 text-sm text-coolGray-800 font-medium"
+                                id="fileName"
+                              >
+                                없음
+                              </p>
                               <svg
                                 class="mb-1"
                                 width="20"
@@ -210,7 +226,8 @@
                                 class="absolute top-0 left-0 w-full opacity-0"
                                 type="file"
                                 name="file"
-                                onchange="changeFileName(this);"/>
+                                onchange="changeFileName(this);"
+                              />
                             </div>
                           </div>
                         </div>
@@ -225,7 +242,7 @@
                               참고링크
                             </p>
                           </div>
-                          <div class="w-full md:flex-1 p-3"id="url">
+                          <div class="w-full md:flex-1 p-3" id="url">
                             <input
                               class="w-full px-4 text-sm text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg py-2"
                               type="text"
@@ -245,13 +262,13 @@
                               기한
                             </p>
                           </div>
-                          <div class="w-full md:flex-1 p-3"id="url">
+                          <div class="w-full md:flex-1 p-3" id="url">
                             <input
-                              id="dateValue"
                               class="w-full px-4 text-sm text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg py-2"
-                              type="datetime-local"
+                              type="text"
                               placeholder="없음"
                               name="deadline"
+                              value="2022-08-17T06:00"
                             />
                           </div>
                         </div>
@@ -346,7 +363,8 @@
                                 <p
                                   class="w-full text-sm font-normal outline-none text-red-600"
                                 >
-                                  명확하고 구체적으로 작성할수록 답변율이 높아요.
+                                  명확하고 구체적으로 작성할수록 답변율이
+                                  높아요.
                                 </p>
                               </div>
                             </div>
@@ -356,11 +374,16 @@
                     </div>
 
                     <div class="flex justify-center w-full space-x-4 p-2">
-                      <button class="border p-2 w-28 rounded-full text-black" type="button" onclick="formFetching();">
+                      <button
+                        class="border p-2 w-28 rounded-full text-black"
+                        type="button"
+                        onclick="formFetching();"
+                      >
                         임시저장
                       </button>
                       <button
-                        class="border bg-violet-300 p-2 w-28 rounded-full text-black">
+                        class="border bg-violet-300 p-2 w-28 rounded-full text-black"
+                      >
                         전송
                       </button>
                     </div>
