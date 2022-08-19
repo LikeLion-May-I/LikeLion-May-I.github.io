@@ -11,7 +11,7 @@ window.onload = () => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": token,
+            "Authorization": "b93590dad6fe00de55a7088efa39c42dd12cf6ee",
           }
       }).then((response) => response.json()).then((data) => {
 
@@ -32,6 +32,14 @@ window.onload = () => {
                               </a>`
                   interviewWrap1.innerHTML += interviewDiv
               } 
+              else {
+                const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html}">
+                <p>${div.department}</p>
+                <p>${div.title}</p>
+                <p>만기</p>
+        </a>`
+interviewWrap2.innerHTML += interviewDiv
+              }
           }
 
           for(div of data.data[1]){
