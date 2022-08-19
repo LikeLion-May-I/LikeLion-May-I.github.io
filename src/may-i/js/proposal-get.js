@@ -1,9 +1,9 @@
 
 window.onload = () => {
   
-  //var interviewId = localStorage.getItem("id");
+  const id = JSON.parse(localStorage.getItem('data')).id
   
-  fetch("http://may-i-server.o-r.kr:8000/interview/get-interview/15 ", {
+  fetch("http://may-i-server.o-r.kr:8000/interview/get-interview/"+id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -17,6 +17,7 @@ window.onload = () => {
       if (data.data.is_report == 0) {
           document.querySelector('#recipientOrsender').innerHTML += `<p class="font-semibold justify-end flex py-5">보낸이</p>`
           document.querySelector('#name').innerHTML += `<p class="w-full text-base font-normal outline-none text-black justify-start px-4 py-3">${data.data.reporter_user}</p>`
+
           document.querySelector('#button').innerHTML += `
           <button class="border p-2 w-28 rounded-full text-black" value="2" onclick="checkedInterview(${data.data.id}, 2)">거절</button>
           <button class="border p-2 w-28 rounded-full text-black" value="3" onclick="checkedInterview(${data.data.id}, 3)">보류</button>

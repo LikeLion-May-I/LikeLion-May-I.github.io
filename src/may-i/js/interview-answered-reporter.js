@@ -39,8 +39,8 @@ window.onload = () => {
             
             if(`${div.is_expired}` == 1) {
                 const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
-                <p>${div.name}</p>
-                <p>${div.title}</p>
+                <p class="pl-3">${div.name}</p>
+                <p class="pl-20">${div.title}</p>
                 <p>만료</p>
                 </a>`
                 interviewWrap.innerHTML += interviewDiv

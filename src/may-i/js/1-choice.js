@@ -36,10 +36,11 @@ window.onload = () => {
             localStorage.setItem("profile_name", data.profile_name);
             localStorage.setItem("is_report", Number(hiddenValue[2]));
             
-            Number(hiddenValue[2])
-                ? window.location.href = "./2-profile-list.html" 
-                : window.location.href = "./5-interview-list-expert.html" 
-            
+            if(Number(hiddenValue[2])){
+              window.location.href = "./2-profile-list.html" 
+            } else {
+              window.location.href = "./5-interview-list-expert.html" 
+            }
     
           })
           .catch((error) => {

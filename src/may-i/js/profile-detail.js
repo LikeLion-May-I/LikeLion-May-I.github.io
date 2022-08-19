@@ -41,12 +41,12 @@ window.onload = () => {
 
             const timedelta = today.getTime() - loadedLastlogin.getTime();
             
-            const timedeltaform = Math.floor(Math.abs(timedelta / (1000 * 60 * 60 * 24)));
-            console.log(timedeltaform);
+            const timedeltaform = Math.floor(Math.abs(timedelta / (1000 * 60 * 60))) + 1;
+            
 
 
             if (timedeltaform > 24){
-                last_login = Math.floor(timedelta / 24) + "일";
+                last_login = Math.floor(timedeltaform / 24) + "일";
             }else{
                 last_login = timedeltaform + "시간";
             }
