@@ -2,6 +2,7 @@ const BASE_URL = "http://may-i-server.o-r.kr:8000";
 
 window.onload = () => {
     const token = localStorage.getItem("token");
+    
     if(!token){
         alert("로그인이 필요합니다!")
         window.location.href = "./1-choice.html" ;
@@ -20,13 +21,14 @@ window.onload = () => {
             interviewWrap2.style.display = "none";
 
             data.data[0].forEach(async div=> {
+                
 
                 // 요청 데이터
                 if (`${div.is_expired}` == 0) {
                 
-                    const interviewDiv = `<div class="${div.id} flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html" onclick="clickBtn(this)">
+                    const interviewDiv = `<div class="flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html" >
                                             <p>${div.name}</p>
-                                            <p class=${div.id}>${div.title}</p>
+                                            <p class=${div.id} onclick="clickBtn(this)">${div.title}</p>
                                             <p class="deadline alive"><input value=${div.deadline} style="display:none;"></p>
                                             <p>요청</p>
                                         </div>`;
@@ -147,5 +149,32 @@ const countDeadline = () => {
         i
       ].innerHTML = `<input value=${deadline.value} style="display:none;"></input>${innerLine}`;
     }
-  });
+  })
 };
+
+const clickBtn = (obj) => {
+
+    const id = obj.classList[0];
+    console.log(id);
+    window.localStorage.setItem('id', id);
+    window.location.href = "./4-proposal-get.html";
+}
+//     console.log(id);
+
+//     const token = localStorage.getItem("token");
+
+//     fetch(`${BASE_URL}/interview/get-interview/${id}`, {
+//         method:'GET',
+//         headers:{
+//             'Content-Type' : 'application/json',
+//             'Authorization' : token
+//         }
+//     })
+//     .then((response) => response.json())
+//     .then((data) => {
+
+//         window.localStorage.setItem('data', JSON.stringify(data.data));
+//         window.location.href = "./4-proposal-get.html";
+//     })
+// }
+
