@@ -1,16 +1,23 @@
 const BASE_URL = "http://may-i-server.o-r.kr:8000";
 
 window.onload = () => {
+
   var interviewId = localStorage.getItem("id");
   const token = localStorage.getItem("token");
-  
+
+  console.log(interviewId);
+
   if(!token) {
     alert("로그인이 필요합니다!");
     window.location.href="./1-choice.html";
   } else {
+    
     fetch(`${BASE_URL}/interview/get-interview/${interviewId}`, {
-      "Content-Type": "application/json",
-      Authorization: token,
+      method: "GET",
+      headers:{
+        "Content-Type": "application/json",
+        "Authorization" : token
+      }
     })
     .then((response) => response.json())
     .then((data) => {
