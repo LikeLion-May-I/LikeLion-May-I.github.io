@@ -7,15 +7,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./js/proposal-get.js"></script>
     <script src="./js/nav.js"></script>
-    
+
     <title>proposal-get</title>
   </head>
 
   <body>
+    <div id="navDiv"></div>
 
-    <div id='navDiv'></div>
-    
-  
     <div class="container mx-auto">
       <div class="flex flex-wrap justify-center">
         <div class="py-10 w-3/4 flex">
@@ -23,7 +21,7 @@
             <div class="flex-col justify-center">
               <div class="justify-center">
                 <p class="text-center mb-4 font-bold">Reporter</p>
-                
+
                 <ul class="mb-8 text-sm font-medium">
                   <li>
                     <a
@@ -50,7 +48,6 @@
                     </a>
                   </li>
                 </ul>
-                
               </div>
             </div>
           </div>
@@ -65,9 +62,7 @@
                         class="flex flex-wrap items-center justify-center mb-3"
                       >
                         <div class="w-full md:w-auto p-2 text-center">
-                          <h2 class="font-semibold text-2xl">
-                            May I 제안서
-                          </h2>
+                          <h2 class="font-semibold text-2xl">May I 제안서</h2>
                         </div>
                         <div class="w-full md:w-auto p-2">
                           <div
@@ -96,7 +91,9 @@
                       <div class="w-full">
                         <div class="flex flex-wrap -m-3">
                           <div class="w-full md:w-1/6 p-3">
-                            <p class="font-semibold flex justify-end py-3">제목</p>
+                            <p class="font-semibold flex justify-end py-3">
+                              제목
+                            </p>
                           </div>
                           <div class="md:flex-1 p-3 w-full" id="title">
                             <!-- <input
@@ -126,13 +123,17 @@
                       </div>
                     </div> -->
 
-                    <div class="border-coolGray-100 py-1 flex justify-center py-1">
+                    <div
+                      class="border-coolGray-100 py-1 flex justify-center py-1"
+                    >
                       <div class="w-full">
                         <div class="flex flex-wrap -m-3">
                           <div class="w-full p-3 md:w-1/6 flex justify-end p-3">
-                            <p class="text-coolGray-800 font-semibold py-2">용도</p>
+                            <p class="text-coolGray-800 font-semibold py-2">
+                              용도
+                            </p>
                           </div>
-                          <div class="px-4 py-3 space-x-3 text-sm"id="purpose">
+                          <div class="px-4 py-3 space-x-3 text-sm" id="purpose">
                             <!-- <input
                               class="w-full px-4 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg py-2"
                               type="text"
@@ -147,7 +148,9 @@
                       <div class="w-full">
                         <div class="flex flex-wrap -m-3">
                           <div class="w-full p-3 md:w-1/6 flex justify-end">
-                            <p class="text-coolGray-800 font-semibold py-2">형식</p>
+                            <p class="text-coolGray-800 font-semibold py-2">
+                              형식
+                            </p>
                           </div>
                           <div class="px-4 py-3 space-x-3 text-sm" id="method">
                             <!-- <label>
@@ -183,7 +186,9 @@
                       <div class="w-full">
                         <div class="flex flex-wrap -m-3">
                           <div class="w-full p-3 md:w-1/6 flex justify-end">
-                            <p class="text-coolGray-800 font-semibold py-2">분량</p>
+                            <p class="text-coolGray-800 font-semibold py-2">
+                              분량
+                            </p>
                           </div>
                           <div class="w-full md:flex-1 p-3" id="amount">
                             <!-- <input
@@ -200,7 +205,9 @@
                       <div class="w-full">
                         <div class="flex flex-wrap -m-3">
                           <div class="w-full p-3 md:w-1/6 flex justify-end">
-                            <p class="text-coolGray-800 font-semibold py-2">내용</p>
+                            <p class="text-coolGray-800 font-semibold py-2">
+                              내용
+                            </p>
                           </div>
                           <div class="w-full md:flex-1 p-3" id="body">
                             <!-- <textarea
@@ -227,7 +234,10 @@
                             </p>
                           </div>
                           <div class="w-full md:flex-1 p-3">
-                            <div id="file" class="relative items-center justify-center text-center text-green-500 border border-coolGray-200 rounded-lg flex justify-between p-3">
+                            <div
+                              id="file"
+                              class="relative items-center justify-center text-center text-green-500 border border-coolGray-200 rounded-lg flex justify-between p-3"
+                            >
                               <!-- <p class="mb-1 text-sm text-coolGray-800 font-medium">없음</p> -->
                               <svg
                                 class="mb-1"
@@ -244,8 +254,6 @@
                               </svg>
                               <input
                                 class="absolute top-0 left-0 w-full opacity-0"
-                                
-                                
                               />
                             </div>
                           </div>
@@ -261,7 +269,7 @@
                               참고링크
                             </p>
                           </div>
-                          <div class="w-full md:flex-1 p-3"id="url">
+                          <div class="w-full md:flex-1 p-3" id="url">
                             <!-- <input
                               class="w-full px-4 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg py-2"
                               type="text"
@@ -272,13 +280,20 @@
                       </div>
                     </div>
 
-                    <div class="border-coolGray-100 py-1 flex justify-center py-1">
+                    <div
+                      class="border-coolGray-100 py-1 flex justify-center py-1"
+                    >
                       <div class="w-full">
                         <div class="flex flex-wrap -m-3">
                           <div class="w-full p-3 md:w-1/6 flex justify-end">
-                            <p class="text-coolGray-800 font-semibold py-2">기한</p>
+                            <p class="text-coolGray-800 font-semibold py-2">
+                              기한
+                            </p>
                           </div>
-                          <div class="px-4 py-3 space-x-3 text-sm" id="deadline">
+                          <div
+                            class="px-4 py-3 space-x-3 text-sm"
+                            id="deadline"
+                          >
                             <!-- <input
                               class="w-full px-4 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border border-coolGray-200 rounded-lg py-2"
                               type="text"
@@ -292,10 +307,10 @@
                     <div class="border-coolGray-100 py-3 flex justify-center">
                       <div class="w-full">
                         <div class="flex flex-wrap -m-3">
-                          <div class="w-full p-3 md:w-1/6">
-                            <p class="text-coolGray-800 font-semibold"></p>
+                          <div class="w-full p-3 md:w-1/6 flex justify-end">
+                            <p class="text-coolGray-800 font-semibold py-2"></p>
                           </div>
-                          <div class="w-full md:flex-1">
+                          <div class="p-3 w-5/6">
                             <div class="border border-coolGray-200 rounded-lg">
                               <div class="flex px-4 py-1 space-x-2">
                                 <svg
@@ -333,7 +348,7 @@
                                   </defs>
                                 </svg>
                                 <p
-                                  class="w-full text-sm font-normal outline-none text-red-600"
+                                  class="text-sm font-normal outline-none text-red-600"
                                 >
                                   한번 전송하면 취소할 수 없어요. 신중하게
                                   작성해주세요.
@@ -375,9 +390,10 @@
                                   </defs>
                                 </svg>
                                 <p
-                                  class="w-full text-sm font-normal outline-none text-red-600"
+                                  class="text-sm font-normal outline-none text-red-600"
                                 >
-                                  명확하고 구체적으로 작성할수록 답변율이 높아요.
+                                  명확하고 구체적으로 작성할수록 답변율이
+                                  높아요.
                                 </p>
                               </div>
                             </div>
@@ -386,14 +402,17 @@
                       </div>
                     </div>
 
-                    <div id="button" class="flex justify-center w-full py-4 space-x-4">
-                      <!— <button class="border p-2 w-28 rounded-full text-black">
+                    <div
+                      id="button"
+                      class="flex justify-center w-full py-4 space-x-4"
+                    >
+                      <!-- <!— <button class="border p-2 w-28 rounded-full text-black">
                         임시저장
                       </button> —>
                       <!— <button
                         class="border bg-violet-300 p-2 w-28 rounded-full text-black">
                         전송
-                      </button> —>
+                      </button> —> -->
                     </div>
                   </div>
                 </div>

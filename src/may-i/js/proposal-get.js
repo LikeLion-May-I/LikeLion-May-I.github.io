@@ -16,7 +16,7 @@ window.onload = () => {
       if (data.data.is_report == 0) {
         document.querySelector(
           "#recipientOrsender"
-        ).innerHTML += `<p class="font-semibold justify-end flex py-5">보낸이</p>`;
+        ).innerHTML += `<p class="font-semibold justify-end flex pr-2 py-5">보낸이</p>`;
         document.querySelector(
           "#name"
         ).innerHTML += `<p class="w-full text-base font-normal outline-none text-black justify-start px-4 py-3">${data.data.reporter_user}</p>`;
@@ -27,10 +27,10 @@ window.onload = () => {
       } else {
         document.querySelector(
           "#recipientOrsender"
-        ).innerHTML += `<p class="font-semibold justify-end flex">받는이</p>`;
+        ).innerHTML += `<p class="font-semibold justify-end flex pr-2 py-5">받는이</p>`;
         document.querySelector(
           "#name"
-        ).innerHTML += `<p class="w-full text-base font-normal outline-none text-black py-2 px-4">${data.data.expert_name}</p>`;
+        ).innerHTML += `<p class="w-full text-base font-normal outline-none text-black justify-start px-4 py-3">${data.data.expert_name}</p>`;
       }
 
       document.querySelector(
