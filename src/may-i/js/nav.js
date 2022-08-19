@@ -45,7 +45,8 @@ window.addEventListener("load", () => {
   const QnA =  document.querySelector('#QnA');
 
   homeTab.addEventListener('click', () => {
-    window.location.href = "http://main--zingy-crumble-51cede.netlify.app/" ;
+    // window.location.href = "http://main--zingy-crumble-51cede.netlify.app/" ;
+    window.location.href = "./1-choice.html" ;
   });
 
   expertTap.addEventListener('click', () => {

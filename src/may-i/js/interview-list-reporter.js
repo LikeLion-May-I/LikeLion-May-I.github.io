@@ -1,25 +1,22 @@
 window.onload = () => {
-  const token = localStorage.getItem("token");
-  if (!token) {
-    alert("로그인이 필요합니다!");
-    window.location.href = "./1-choice.html";
-  } else {
-    fetch(
-      "http://may-i-server.o-r.kr:8000/profile/get-apply-list-for-reporter/",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "7d1f8745f728e7135041cd8ef8acceb908598006",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.data);
-        const interviewWrap = document.querySelector("#interviewWrap");
-        data.data.forEach(async (div) => {
-          const interviewDiv = `<div class="flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html}">
+    const token = localStorage.getItem("token");
+    if(!token){
+        alert("로그인이 필요합니다!")
+        window.location.href = "./1-choice.html" ;
+    } else {
+
+        fetch("http://may-i-server.o-r.kr:8000/profile/get-apply-list-for-reporter/", {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json",
+            "Authorization": token,
+            }
+        }).then((response) => response.json()).then((data) => {
+            console.log(data.data)
+            const interviewWrap = document.querySelector('#interviewWrap')
+            data.data[0].forEach(async div=> {
+                
+                const interviewDiv = `<div class="${div.id} flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html" onclick="clickBtn(this)">
                                         <p>${div.name}</p>
                                         <p class=${div.id}>${div.title}</p>
                                         <p class="deadline alive"><input value=${div.deadline} style="display:none;"></p>
