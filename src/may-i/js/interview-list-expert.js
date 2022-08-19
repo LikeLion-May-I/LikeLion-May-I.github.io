@@ -24,11 +24,11 @@ window.onload = () => {
           for(div of data.data[0]){
               if(`${div.is_expired}` == 0) {
                   //요청 인터뷰
-                  const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html}">
-                                      <p>${div.department}</p>
-                                      <p>${div.title}</p>
-                                      <p class="deadline alive"><input value=${div.deadline} style="display:none;"></p>
-                                      <p>요청</p>
+                  const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="./proposal-get.html}">
+                                      <p class="w-3/12 flex justify-center">${div.department}</p>
+                                      <p class="w-5/12 flex justify-center">${div.title}</p>
+                                      <p class="w-2/12 deadline alive flex justify-center"><input value=${div.deadline} style="display:none;"></p>
+                                      <p class="w-1/12 flex justify-center">요청</p>
                               </a>`
                   interviewWrap1.innerHTML += interviewDiv
 
@@ -37,10 +37,10 @@ window.onload = () => {
                         countDeadline()}, 1000);
               } 
               else {
-                const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="./proposal-get.html}">
-                <p>${div.department}</p>
-                <p>${div.title}</p>
-                <p>만기</p>
+                const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="./proposal-get.html}">
+                <p class="w-3/12 flex justify-center">${div.department}</p>
+                <p class="w-8/12 flex justify-center">${div.title}</p>
+                <p class="w-1/12 flex justify-center">만기</p>
         </a>`
 interviewWrap2.innerHTML += interviewDiv
               }
@@ -48,38 +48,38 @@ interviewWrap2.innerHTML += interviewDiv
 
           for(div of data.data[1]){
               if(`${div.response}` == 1){
-                  const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
-                                      <p>${div.department}</p>
-                                      <p>${div.title}</p>
-                                      <p>수락</p>
+                  const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
+                                      <p class="w-3/12 flex justify-center">${div.department}</p>
+                                      <p class="w-8/12 flex justify-center">${div.title}</p>
+                                      <p class="w-1/12 flex justify-center">수락</p>
                               </a>`
                   interviewWrap2.innerHTML += interviewDiv
               }
               else if(`${div.response}` == 2) {
-                  const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
-                  <p>${div.department}</p>
-                  <p>${div.title}</p>
-                  <p>거절</p>
+                  const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
+                  <p class="w-3/12 flex justify-center">${div.department}</p>
+                  <p class="w-8/12 flex justify-center">${div.title}</p>
+                  <p class="w-1/12 flex justify-center">거절</p>
                   </a>`
                   interviewWrap2.innerHTML += interviewDiv
               }
               else if(`${div.response}` == 3) {
-                  const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
-                  <p>${div.department}</p>
-                  <p>${div.title}</p>
-                  <p>보류</p>
+                  const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
+                  <p class="w-3/12 flex justify-center">${div.department}</p>
+                  <p class="w-8/12 flex justify-center">${div.title}</p>
+                  <p class="w-1/12 flex justify-center">보류</p>
                   </a>`
                   interviewWrap2.innerHTML += interviewDiv
               }
 
-              if(`${div.is_expired}` == 1) {
-                  const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
-                  <p>${div.name}</p>
-                  <p>${div.title}</p>
-                  <p>만료</p>
-                  </a>`
-                  interviewWrap2.innerHTML += interviewDiv
-              }
+            //   if(`${div.is_expired}` == 1) {
+            //       const interviewDiv = `<a class="flex p-3 justify-around text-base text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
+            //       <p class="w-3/12">${div.name}</p>
+            //       <p>${div.title}</p>
+            //       <p>만료</p>
+            //       </a>`
+            //       interviewWrap2.innerHTML += interviewDiv
+            //   }
 
           }
 

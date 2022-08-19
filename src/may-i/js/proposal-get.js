@@ -7,7 +7,7 @@ window.onload = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "b93590dad6fe00de55a7088efa39c42dd12cf6ee",
+        "Authorization": "5a6fd5a0f759438916a2739a34940abc372c31fb",
       }
   }).then((response) => response.json()).then((data) => {
 
