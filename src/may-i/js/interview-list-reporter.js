@@ -7,7 +7,7 @@ window.onload = () => {
         window.location.href = "./1-choice.html" ;
     } else {
 
-        fetch("http://may-i-server.o-r.kr:8000/profile/get-apply-request-all-for-reporter/", {
+        fetch("http://may-i-server.o-r.kr:8000/profile/get-apply-list-for-reporter/", {
             method: "GET",
             headers: {
             "Content-Type": "application/json",
