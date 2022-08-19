@@ -34,8 +34,12 @@ window.onload = () => {
             alert(`${data.profile_name} ${part}님으로 로그인 성공!`);
             localStorage.setItem("token", data.token);
             localStorage.setItem("profile_name", data.profile_name);
+            localStorage.setItem("is_report", Number(hiddenValue[2]));
             
-            // window.location.href = "./2-profile-list.html" ;
+            Number(hiddenValue[2])
+                ? window.location.href = "./2-profile-list.html" 
+                : window.location.href = "./5-interview-list-expert.html" 
+            
     
           })
           .catch((error) => {
