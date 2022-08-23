@@ -1,4 +1,5 @@
-const BASE_URL = "http://may-i-server.o-r.kr:8000";
+// const BASE_URL = "http://may-i-server.o-r.kr:8000";
+const BASE_URL = "http://127.0.0.1:8000";
 
 window.onload = () => {
   const token = localStorage.getItem("token");
@@ -128,7 +129,7 @@ const countDeadline = () => {
       const dataTag = tag.previousElementSibling;
 
       fetch(
-        "http://may-i-server.o-r.kr:8000/interview/update-reply/" +
+        `${BASE_URL}/interview/update-reply/` +
           dataTag.classList[0],
         {
           method: "PATCH", // 또는 'PUT'

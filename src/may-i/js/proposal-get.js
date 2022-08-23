@@ -120,7 +120,7 @@ const countDeadline = () => {
       const dataTag = tag.previousElementSibling;
 
       fetch(
-        "http://may-i-server.o-r.kr:8000/interview/update-reply/" +
+        `${BASE_URL}/interview/update-reply/` +
           dataTag.classList[0],
         {
           method: "PATCH", // 또는 'PUT'
@@ -192,7 +192,7 @@ const countDeadline = () => {
 
 const checkedInterview = (interviewId, buttonValue) => {
   fetch(
-    `http://may-i-server.o-r.kr:8000/interview/checked-interview/${interviewId}`,
+    `${BASE_URL}/interview/checked-interview/${interviewId}`,
     {
       method: "PATCH",
       body: JSON.stringify({
@@ -212,7 +212,7 @@ const checkedInterview = (interviewId, buttonValue) => {
       if (result) {
         alert("전송 완료되었습니다");
         window.location.href =
-          "http://127.0.0.1:5500./5-interview-answered-expert.html";
+          "./5-interview-answered-expert.html";
       } else {
       }
     })

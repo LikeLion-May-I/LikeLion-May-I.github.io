@@ -1,4 +1,4 @@
-const baseUrl = "http://may-i-server.o-r.kr:8000"
+const BASE_URL = "http://may-i-server.o-r.kr:8000"
 const createData = JSON.parse(localStorage.getItem('data'))
 
 window.onload = () => {
@@ -14,7 +14,6 @@ window.onload = () => {
   let date = new Date(new Date().getTime()+(1000*60*60*24) - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, -5);
   dateElement.value = date;
   dateElement.setAttribute("min", date);
-  
 
 }
 
@@ -32,7 +31,7 @@ const formFetching = () => {
 
   // experUserId = localStorage.getItem("experUserId");
   
-  const formActionUrl = `${baseUrl}/interview/update-interview/` + interviewId
+  const formActionUrl = `${BASE_URL}/interview/update-interview/` + interviewId
 
   if(!updateInterviewForm.method.value) {
     alert("인터뷰 방식을 입력해주세요!");
@@ -45,7 +44,7 @@ const formFetching = () => {
   else{
 
       let formData = new FormData(updateInterviewForm)
-
+      
       fetch(formActionUrl, {
         method: 'POST', // 또는 'PUT'
         body: formData,
@@ -73,7 +72,7 @@ const clickSend = () => {
   const token = localStorage.getItem("token");
   const interviewId = String(createData["id"]);
   console.log(interviewId)
-  fetch("http://may-i-server.o-r.kr:8000/interview/send-interview/" + interviewId, {
+  fetch(`${BASE_URL}/interview/send-interview/` + interviewId, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",

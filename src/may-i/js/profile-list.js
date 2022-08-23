@@ -1,9 +1,11 @@
 
-const baseUrl = "http://may-i-server.o-r.kr:8000"
+// const BASE_URL = "http://may-i-server.o-r.kr:8000"
+const BASE_URL = "http://127.0.0.1:8000"
+
 
 window.onload = () => {
 
-    fetch("http://may-i-server.o-r.kr:8000/profile/get-profile-all/5", {
+    fetch(`${BASE_URL}/profile/get-profile-all/5`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -131,7 +133,7 @@ const clickBtn = (obj) => {
 
     console.log(id);
 
-    fetch(`${baseUrl}/profile/get-profile-one/${id}`, {
+    fetch(`${BASE_URL}/profile/get-profile-one/${id}`, {
         method: 'GET',
         headers:{
             'Content-Type': 'application/json',

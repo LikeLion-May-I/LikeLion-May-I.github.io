@@ -1,4 +1,4 @@
-const baseUrl = "http://may-i-server.o-r.kr:8000"
+const BASE_URL = "http://may-i-server.o-r.kr:8000"
 
 window.onload = () => {
     
@@ -6,7 +6,7 @@ window.onload = () => {
 
     console.log(id);
 
-    fetch("http://may-i-server.o-r.kr:8000/profile/get-profile-one/"+id, {
+    fetch(`${BASE_URL}/profile/get-profile-one/`+id, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -161,7 +161,7 @@ const clickBtn = () => {
   } else if(confirm("인터뷰를 요청하시겠습니까?")){
     const id = JSON.parse(localStorage.getItem('data')).id
 
-    fetch(`${baseUrl}/interview/create-interview/${id}`,{
+    fetch(`${BASE_URL}/interview/create-interview/${id}`,{
       method:'POST',
       headers:{
           'Content-Type': 'application/json',

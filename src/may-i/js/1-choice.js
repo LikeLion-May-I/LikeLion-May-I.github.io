@@ -1,4 +1,5 @@
-const baseUrl = "http://may-i-server.o-r.kr:8000"
+const BASE_URL = "http://may-i-server.o-r.kr:8000"
+// const baseUrl = "http://52.78.173.99:8000"
 
 
 window.onload = () => {
@@ -15,7 +16,7 @@ window.onload = () => {
         //
         console.log(e.currentTarget)
         const hiddenValue = e.currentTarget.firstElementChild.value.split(" ");
-        const loginActionUrl = `${baseUrl}/profile/login/`
+        const loginActionUrl = `${BASE_URL}/profile/login/`
         fetch(loginActionUrl, {
             headers: {
               "Content-Type": "application/json"
