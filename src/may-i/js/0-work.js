@@ -7,7 +7,7 @@ window.addEventListener("load", () => {
       </h2>
     </div>
     <div class="mx-auto max-w-[1000px] flex w-full h-auto py-12">
-      <div class="mx-6 w-1/2">
+      <div class="mx-6 w-1/2 flex flex-col justify-center">
         <h1 class="text-lg md:text-2xl font-bold">
           원하는 전문가를 찾아 취재요청을 해봐요
         </h1>
@@ -35,7 +35,7 @@ window.addEventListener("load", () => {
           objectPosition="center"
         />
       </div>
-      <div class="mx-6 w-1/2">
+      <div class="mx-6 w-1/2 flex flex-col justify-center">
         <h1 class="text-lg md:text-2xl font-bold">
           May I 제안서를 보내요
         </h1>
@@ -45,7 +45,7 @@ window.addEventListener("load", () => {
       </div>
     </div>
     <div class="mx-auto max-w-[1000px] flex w-full h-auto py-12">
-      <div class="mx-6 w-1/2">
+      <div class="mx-6 w-1/2 flex flex-col justify-center">
         <h1 class="text-lg md:text-2xl font-bold">
           인터뷰 목록에서 진행 상황을 살펴봐요
         </h1>

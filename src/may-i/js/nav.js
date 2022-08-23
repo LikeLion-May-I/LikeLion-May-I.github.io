@@ -22,12 +22,7 @@ window.addEventListener("load", () => {
                 Reporter
             </a>
             </link>
-        <div class="flex items-center ml-auto">
-    <link href=‘#’>
-            <a id="QnA" style="cursor: pointer" class="hidden md:flex text-sm md:text-lg ml-[0.6rem] md:mr-10 hover:text-indigo-500 font-bold">
-                Q&A
-            </a>
-            </link>
+
         <link href="/login">
             <a href="./1-choice.html" id="loginBtn" class="font-heading text-white font-bold inline-flex items-center justify-center px-[1rem] text-sm md:text-lg py-2 md:px-6 rounded-full transform duration-200 bg-indigo-300 hover:bg-indigo-500">
             Sign Up/In
@@ -42,7 +37,6 @@ window.addEventListener("load", () => {
   const homeTab =  document.querySelector('#homeTab');
   const expertTap = document.querySelector('#expertTap');
   const reporterTap =  document.querySelector('#reporterTap');
-  const QnA =  document.querySelector('#QnA');
 
   homeTab.addEventListener('click', () => {
     // window.location.href = "http://main--zingy-crumble-51cede.netlify.app/" ;
@@ -55,9 +49,7 @@ window.addEventListener("load", () => {
   reporterTap.addEventListener('click', () => {
     alert("준비중");
   });
-  QnA.addEventListener('click', () => {
-    alert("준비중");
-  });
+
 
   //토큰 있으면 sign in 버튼 바꾸기
   const token = localStorage.getItem("token");

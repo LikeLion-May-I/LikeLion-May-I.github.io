@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
       <div class="max-w-4xl mx-8 md:mx-20">
         <div class="block md:flex rounded-lg bg-white shadow-2xl">
           
-            <div class="md:w-1/3 border-b border-gray-100 px-3 py-4 md:p-10 text-center">
+            <div class="md:w-1/3 border-b border-gray-100 px-3 py-4 md:p-10 flex flex-col items-center">
               <Image src=./img/stats1.svg width={200} height={200} />
               <p class="mt-3 text-3xl md:text-5xl tracking-tight font-bold text-indigo-500">
                 832명
@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
                 신뢰할 수 있는 전문가
               </p>
             </div>
-            <div class="md:w-1/3 border-b border-gray-100 px-3 py-4 md:p-10 text-center">
+            <div class="md:w-1/3 border-b border-gray-100 px-3 py-4 md:p-10 flex flex-col items-center">
               <Image src=./img/stats2.svg width={200} height={200} />
               <p class="mt-3 text-3xl md:text-5xl tracking-tight font-bold text-indigo-500">
                 78명
@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
                 하루 평균 매칭
               </p>
             </div>
-            <div class="md:w-1/3 border-b border-gray-100 px-3 py-4 md:p-10 text-center">
+            <div class="md:w-1/3 border-b border-gray-100 px-3 py-4 md:p-10 flex flex-col items-center">
               <Image src=./img/stats3.svg width={200} height={200} />
               <p class="mt-3 text-3xl md:text-5xl tracking-tight font-bold text-indigo-500">
                 96%

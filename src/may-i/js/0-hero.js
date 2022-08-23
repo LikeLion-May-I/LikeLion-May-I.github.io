@@ -5,17 +5,18 @@
         objectFit="cover"
         objectPosition="center"
       /> */}
+    //   <Image
+    //   class="z-[-1]"
+    //   src="./img/bg.svg"
+    //   layout="fill"
+    //   objectFit="cover"
+    //   objectPosition="center"
+    // /> 
 
 window.addEventListener("load", () => {
-    const hero = ` <main class="relative border">
-      <Image
-        class="z-[-1]"
-        src="./img/bg.svg"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
-      /> 
-     <div style="bacground-image:url(./img/bg.svg)" class="absolute top-6 left-48 mx-auto max-w-[1000px] w-3/4 py-20 md:py-36 px-6 ">
+    const hero = ` <main style="background-image:url(./img/bg.svg)" class="relative border">
+    
+     <div class="top-6 left-48 mx-auto max-w-[1000px] w-3/4 py-20 md:py-36 px-6 ">
         <div class="text-left w-full flex text-2xl md:text-4xl font-bold text-gray-900">
           <span class="block">
             당신의 전문가에게
@@ -29,7 +30,7 @@ window.addEventListener("load", () => {
           <span>기다림 없는 인터뷰 컨택 플랫폼, May I</span>
         </div>
         <div class="absolute z-10">
-          <button class="px-4 md:px-12 py-2 text-center text-md md:text-xl text-white bg-indigo-300 hover:bg-indigo-500 font-bold rounded-xl">
+          <button onclick="location.href='./1-select-expert.html'" class="px-4 md:px-12 py-2 text-center text-md md:text-xl text-white bg-indigo-300 hover:bg-indigo-500 font-bold rounded-xl">
             전문가 바로 찾기
           </button>
         </div>
