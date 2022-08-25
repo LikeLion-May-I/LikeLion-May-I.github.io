@@ -70,7 +70,7 @@ window.onload = () => {
                                         <div class="flex items-center mb-4">
                                             <div class="rounded-full object-cover">
                                                 <img 
-                                                    src=${baseUrl}${div.img}
+                                                    src=${BASE_URL}${div.img}
                                                     alt=""
                                                     width="90"
                                                     height="90"
