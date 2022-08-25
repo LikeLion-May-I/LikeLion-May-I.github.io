@@ -33,6 +33,8 @@ window.onload = () => {
           .then((data) => {
             console.log(data)
             
+            // 실제로는 로그인 분기 필요
+
             let part = Number(hiddenValue[2]) ?  "리포터" : "전문가" 
             alert(`${data.profile_name} ${part}님으로 로그인 성공!`);
             localStorage.setItem("token", data.token);

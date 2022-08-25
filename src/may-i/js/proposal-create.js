@@ -1,4 +1,7 @@
-const BASE_URL = "http://may-i-server.o-r.kr:8000"
+// const BASE_URL = "http://may-i-server.o-r.kr:8000"
+const BASE_URL = "https://may-i-server.herokuapp.com"
+
+
 const createData = JSON.parse(localStorage.getItem('data'))
 
 window.onload = () => {
