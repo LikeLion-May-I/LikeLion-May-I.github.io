@@ -1,6 +1,7 @@
 
+const BASE_URL = "https://may-i-server.herokuapp.com"
 // const BASE_URL = "http://may-i-server.o-r.kr:8000"
-const BASE_URL = "http://127.0.0.1:8000"
+// const BASE_URL = "http://127.0.0.1:8000"
 
 
 window.onload = () => {
