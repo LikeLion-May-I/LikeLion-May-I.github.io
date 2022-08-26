@@ -74,6 +74,7 @@ window.onload = () => {
                                                     alt=""
                                                     width="90"
                                                     height="90"
+                                                    style="object-fit:cover"
                                                 />
                                             </div>
                                             <div class="pl-4">
