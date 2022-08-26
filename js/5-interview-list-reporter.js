@@ -27,7 +27,7 @@ window.onload = () => {
 
                 // 요청 데이터
                 if (`${div.is_expired}` == 0) {
-                    const interviewDiv = `<div class="${div.id} flex p-3 justify-around text-sm text-black w-full space-x-10" href="./proposal-get.html">
+                    const interviewDiv = `<div class="${div.id} flex p-3 justify-around text-sm text-black w-full space-x-10">
                                             <p class="w-2/12 flex justify-center">${div.name}</p>
                                             <p class="${div.id} w-5/12 flex justify-center" onclick="clickBtn(this)">${div.title}</p>
                                             <p class="deadline alive w-2/12 deadline alive flex justify-center"><input value=${div.deadline} style="display:none;"></p>

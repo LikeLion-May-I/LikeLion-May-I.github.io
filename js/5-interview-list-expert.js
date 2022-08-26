@@ -27,9 +27,9 @@ window.onload = () => {
         for (div of data.data[0]) {
           if (`${div.is_expired}` == 0) {
             //요청 인터뷰
-            const interviewDiv = `<a class="flex py-2 justify-around text-sm text-black w-full space-x-10" href="./proposal-get.html}">
+            const interviewDiv = `<div class="flex py-2 justify-around text-sm text-black w-full space-x-10" href="./4-proposal-get.html}">
                                       <p class="w-3/12 flex justify-center">${div.department}</p>
-                                      <p class="w-5/12 flex justify-center">${div.title}</p>
+                                      <p class="${div.id} w-5/12 flex justify-center" onclick="clickBtn(this)">${div.title}</p>
                                       <p class="w-2/12 deadline alive flex justify-center"><input value=${div.deadline} style="display:none;"></p>
                                       <p class="w-1/12 flex justify-center">요청</p>
                               </a>`;
@@ -173,3 +173,12 @@ const countDeadline = () => {
     }
   });
 };
+
+
+const clickBtn = (obj) => {
+
+  const id = obj.classList[0];
+  console.log(id);
+  window.localStorage.setItem('id', id);
+  window.location.href = "./4-proposal-get.html";
+}
