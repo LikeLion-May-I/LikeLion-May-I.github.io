@@ -72,9 +72,12 @@ window.onload = () => {
       document.querySelector(
         "#body"
       ).innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.body}</p>`;
-      document.querySelector(
-        "#file"
-      ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${data.data.file}" target="_blank"></p>`;
+      if(!data.data.file){
+        document.querySelector(
+          "#file"
+        ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${BASE_URL}${data.data.file}"></a>`;
+      }
+      
       document.querySelector(
         "#url"
       ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${data.data.url}">${data.data.url}</a>`;
