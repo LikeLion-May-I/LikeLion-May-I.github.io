@@ -18,8 +18,8 @@ window.addEventListener("load", () => {
             </link>
         <div class="flex items-center ml-auto">
     <link href=‘#’>
-            <a id="reporterTap" style="cursor: pointer" class="hidden md:flex text-sm md:text-lg ml-[0.6rem] md:mr-10 hover:text-indigo-500 font-bold">
-                Reporter
+            <a id="selectTap" style="cursor: pointer" class="hidden md:flex text-sm md:text-lg ml-[0.6rem] md:mr-10 hover:text-indigo-500 font-bold">
+                Select
             </a>
             </link>
 
@@ -36,18 +36,17 @@ window.addEventListener("load", () => {
 
   const homeTab =  document.querySelector('#homeTab');
   const expertTap = document.querySelector('#expertTap');
-  const reporterTap =  document.querySelector('#reporterTap');
+  const selectTap =  document.querySelector('#selectTap');
 
   homeTab.addEventListener('click', () => {
-    // window.location.href = "http://main--zingy-crumble-51cede.netlify.app/" ;
-    window.location.href = "./1-choice.html" ;
+    window.location.href = "./index.html" ;
   });
 
   expertTap.addEventListener('click', () => {
     window.location.href = "./1-select-expert.html";  
   })
-  reporterTap.addEventListener('click', () => {
-    alert("준비중");
+  selectTap.addEventListener('click', () => {
+    window.location.href = "./1-choice.html" ;
   });
 
 
