@@ -41,11 +41,11 @@ window.onload = () => {
                     }, 1000);
 
                 } else { 
-                    const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="./proposal-get.html}">
+                    const interviewDiv = `<div class="flex p-3 justify-around text-sm text-black w-full space-x-10">
                                                 <p class="w-3/12 flex justify-center">${div.name}</p>
-                                                <p class="w-8/12 flex justify-center">${div.title}</p>
+                                                <p class="${div.id} w-8/12 flex justify-center cursor-pointer" onclick="clickBtn(this)">${div.title}</p>
                                                 <p class="w-1/12 flex justify-center">만기</p>
-                                        </a>`;
+                                        </div>`;
                     interviewWrap2.innerHTML += interviewDiv;
                 }
             });
@@ -53,11 +53,11 @@ window.onload = () => {
             const responseList = {1:"수락", 2:"거절", 3:"보류"};
 
             data.data[1].forEach(async div=> {
-                const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
+                const interviewDiv = `<div class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
                                       <p class="w-3/12 flex justify-center">${div.name}</p>
-                                      <p class="w-8/12 flex justify-center">${div.title}</p>
+                                      <p class="${div.id} w-8/12 flex justify-center cursor-pointer" onclick="clickBtn(this)">${div.title}</p>
                                       <p class="w-1/12 flex justify-center">${responseList[div.response]}</p>
-                                </a>`;
+                                </div>`;
                 interviewWrap2.innerHTML += interviewDiv;
             })
       });
