@@ -29,7 +29,7 @@ window.onload = () => {
             //요청 인터뷰
             const interviewDiv = `<div class="flex py-2 justify-around text-sm text-black w-full space-x-10" href="./4-proposal-get.html}">
                                       <p class="w-3/12 flex justify-center">${div.department}</p>
-                                      <p class="${div.id} w-5/12 flex justify-center" onclick="clickBtn(this)">${div.title}</p>
+                                      <p class="${div.id} w-5/12 flex justify-center hover:bg-purple-700" onclick="clickBtn(this)">${div.title}</p>
                                       <p class="w-2/12 deadline alive flex justify-center"><input value=${div.deadline} style="display:none;"></p>
                                       <p class="w-1/12 flex justify-center">요청</p>
                               </a>`;
