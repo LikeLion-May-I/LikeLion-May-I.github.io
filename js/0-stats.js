@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
           
             <div class="md:w-1/3 border-b border-gray-100 px-3 py-4 md:p-10 flex flex-col items-center">
               <Image src=./img/stats1.svg width={200} height={200} />
-              <p class="mt-3 text-3xl md:text-5xl tracking-tight font-bold text-indigo-500">
+              <p class="mt-3 text-3xl md:text-3xl tracking-tight font-bold text-indigo-500">
                 832명
               </p>
               <p class="mt-2 text-md md:text-lg leading-6 font-medium text-gray-500">
@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
             </div>
             <div class="md:w-1/3 border-b border-gray-100 px-3 py-4 md:p-10 flex flex-col items-center">
               <Image src=./img/stats2.svg width={200} height={200} />
-              <p class="mt-3 text-3xl md:text-5xl tracking-tight font-bold text-indigo-500">
+              <p class="mt-3 text-3xl md:text-3xl tracking-tight font-bold text-indigo-500">
                 78명
               </p>
               <p class="mt-2 text-md md:text-lg leading-6 font-medium text-gray-500">
@@ -31,7 +31,7 @@ window.addEventListener("load", () => {
             </div>
             <div class="md:w-1/3 border-b border-gray-100 px-3 py-4 md:p-10 flex flex-col items-center">
               <Image src=./img/stats3.svg width={200} height={200} />
-              <p class="mt-3 text-3xl md:text-5xl tracking-tight font-bold text-indigo-500">
+              <p class="mt-3 text-3xl md:text-3xl tracking-tight font-bold text-indigo-500">
                 96%
               </p>
               <p class="mt-2 text-md md:text-lg leading-6 font-medium text-gray-500">
