@@ -77,7 +77,7 @@ window.onload = () => {
       ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${data.data.file}" target="_blank"></p>`;
       document.querySelector(
         "#url"
-      ).innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.url}</p>`;
+      ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${data.data.url}">${data.data.url}</a>`;
       document.querySelector(
         "#deadline"
       ).innerHTML += `<p class="deadline alive text-base font-normal outline-none text-black px-3 py-3"><input value=${data.data.deadline} style="display:none;"></p>`;
