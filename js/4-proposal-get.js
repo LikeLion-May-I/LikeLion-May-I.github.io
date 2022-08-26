@@ -193,34 +193,38 @@ const countDeadline = () => {
 // }
 
 const checkedInterview = (interviewId, buttonValue) => {
-  fetch(
-    `${BASE_URL}/interview/checked-interview/${interviewId}`,
-    {
-      method: "PATCH",
-      body: JSON.stringify({
-        response: buttonValue,
-        hold_reason: "",
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    }
-  )
-    .then((response) => response.json())
-    .then((json) => {
-      console.log("성공:", json);
 
-      var result = confirm("정말로 보내시겠습니까?");
-      if (result) {
-        alert("전송 완료되었습니다");
-        window.location.href =
-          "./5-interview-answered-expert.html";
-      } else {
+  const valueHash = {1 : "수락", 2: "거절", 3:"보류"}
+
+  var result = confirm(`정말로 ${valueHash} 하시겠습니까?`);
+  if (result) {
+
+    fetch(
+      `${BASE_URL}/interview/checked-interview/${interviewId}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({
+          response: buttonValue,
+          hold_reason: "",
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
       }
-    })
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        alert("완료되었습니다"); 
+        console.log("성공:", json);
+        window.location.href =
+            "./5-interview-list-expert.html";
 
-    .catch((error) => {
-      console.error("실패:", error);
-    });
+      })
+
+      .catch((error) => {
+        console.error("실패:", error);
+      });
+
+  }
 };
 
