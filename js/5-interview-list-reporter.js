@@ -50,7 +50,7 @@ window.onload = () => {
                 }
             });
 
-            const responseList = {1:"거절", 2:"보류", 3:"수락"};
+            const responseList = {1:"수락", 2:"거절", 3:"보류"};
 
             data.data[1].forEach(async div=> {
                 const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
