@@ -158,7 +158,7 @@ const countDeadline = () => {
 
       let innerLine = "";
       if (days) innerLine += `${days}d `;
-      if (hour != "00") innerLine += `${hour}d `;
+      if (hour != "00") innerLine += `${hour}h `;
 
       innerLine += `${minutes}m ${second}s`;
 
