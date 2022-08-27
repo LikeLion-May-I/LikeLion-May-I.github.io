@@ -40,9 +40,9 @@ const formFetching = () => {
     alert("인터뷰 방식을 입력해주세요!");
     return false;
   }
-  // else if (!updateInterviewForm.title.value) alert("제목을 입력해주세요!");
-  // else if (!updateInterviewForm.body.value) alert("본문을 입력해주세요!");
-  // else if (!updateInterviewForm.deadline.value) alert("본문을 입력해주세요!");
+  else if (!updateInterviewForm.title.value) alert("제목을 입력해주세요!");
+  else if (!updateInterviewForm.body.value) alert("본문을 입력해주세요!");
+  else if (!updateInterviewForm.amount.value) alert("분량을 입력해주세요!");
   
   else{
 
