@@ -157,10 +157,11 @@ const countDeadline = () => {
       const second = String(Math.floor((gap / 1000) % 60)).padStart(2, "0"); // 초
 
       let innerLine = "";
-      if (days) innerLine += `${days}d `;
-      if (hour != "00") innerLine += `${hour}h `;
-
-      innerLine += `${minutes}m ${second}s`;
+      if (days) innerLine += `D-${days}`;
+      else {
+        innerLine += `${hour}h `;
+        innerLine += `${hour}h ${minutes}m ${second}s`;
+      }
 
       deadlineTag[
         i
