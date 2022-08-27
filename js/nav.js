@@ -61,7 +61,9 @@ window.addEventListener("load", () => {
 
   if(is_report == 1){
     loginBtn.href = "./5-interview-list-reporter.html"; 
-  }else{
+  }else if(is_report == 0){
     loginBtn.href =  "./5-interview-list-expert.html"; 
+  }else{
+    loginBtn.href =  "./1-choice.html"; 
   }
 });
