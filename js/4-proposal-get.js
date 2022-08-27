@@ -75,12 +75,12 @@ window.onload = () => {
       if(!data.data.file){
         document.querySelector(
           "#file"
-        ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${BASE_URL}${data.data.file}"></a>`;
+        ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${BASE_URL}${data.data.file}">파일 확인하기</a>`;
       }
       
       document.querySelector(
         "#url"
-      ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2\" href="${data.data.url}">${data.data.url}</a>`;
+      ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${data.data.url}">${data.data.url}</a>`;
       document.querySelector(
         "#deadline"
       ).innerHTML += `<p class="deadline alive text-base font-normal outline-none text-black px-3 py-3"><input value=${data.data.deadline} style="display:none;"></p>`;

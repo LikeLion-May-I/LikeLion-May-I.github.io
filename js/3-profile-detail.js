@@ -60,7 +60,6 @@ window.onload = () => {
         <div class="bg-white rounded-2xl shadow-2xl flex p-5 space-x-3">
           <div class="flex-col justify-center">
           <div class="flex justify-center mb-7">
-                                                    style="object-fit:cover"
             <img src=${BASE_URL}${data.data.img} alt="" width="150" height="150" style="object-fit:cover"/>
           </div>
           <div class="mb-3">
