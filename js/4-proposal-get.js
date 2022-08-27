@@ -200,7 +200,7 @@ const checkedInterview = (interviewId, buttonValue) => {
 
   const valueHash = {1 : "수락", 2: "거절", 3:"보류"}
 
-  var result = confirm(`정말로 ${valueHash} 하시겠습니까?`);
+  var result = confirm(`정말로 ${valueHash[buttonValue]} 하시겠습니까?`);
   if (result) {
 
     fetch(
