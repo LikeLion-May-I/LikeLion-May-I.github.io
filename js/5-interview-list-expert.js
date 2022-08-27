@@ -29,8 +29,8 @@ window.onload = () => {
             //요청 인터뷰
             const interviewDiv = `<div class="flex py-2 justify-around text-sm text-black w-full space-x-10">
                                       <p class="w-3/12 flex justify-center">${div.department}</p>
-                                      <p class="${div.id} w-5/12 flex justify-center cursor-pointer" onclick="clickBtn(this)">${div.title}</p>
-                                      <p class="w-2/12 deadline alive flex justify-center"><input value=${div.deadline} style="display:none;"></p>
+                                      <p class="${div.id} w-5/12 flex justify-center cursor-pointer text-blue-500" onclick="clickBtn(this)">${div.title}</p>
+                                      <p class="w-2/12 deadline alive flex justify-center text-red-500"><input value=${div.deadline} style="display:none;"></p>
                                       <p class="w-1/12 flex justify-center">요청</p>
                               </div>`;
             interviewWrap1.innerHTML += interviewDiv;
@@ -42,8 +42,8 @@ window.onload = () => {
           } else {
             const interviewDiv = `<div class="flex p-3 justify-around text-sm text-black w-full space-x-10" >
                 <p class="w-3/12 flex justify-center">${div.department}</p>
-                <p class="${div.id} w-8/12 flex justify-center cursor-pointer" onclick="clickBtn(this)">${div.title}</p>
-                <p class="w-1/12 flex justify-center">만기</p>
+                <p class="${div.id} w-8/12 flex justify-center cursor-pointer text-blue-500" onclick="clickBtn(this)">${div.title}</p>
+                <p class="w-1/12 flex justify-center text-red-500">만기</p>
         </div>`;
             interviewWrap2.innerHTML += interviewDiv;
           }
@@ -53,22 +53,22 @@ window.onload = () => {
           if (`${div.response}` == 1) {
             const interviewDiv = `<div class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
                                       <p class="w-3/12 flex justify-center">${div.department}</p>
-                                      <p class="${div.id} w-8/12 flex justify-center cursor-pointer" onclick="clickBtn(this)">${div.title}</p>
-                                      <p class="w-1/12 flex justify-center">수락</p>
+                                      <p class="${div.id} w-8/12 flex justify-center cursor-pointer text-blue-500" onclick="clickBtn(this)">${div.title}</p>
+                                      <p class="w-1/12 flex justify-center text-blue-500">수락</p>
                                 </div>`;
             interviewWrap2.innerHTML += interviewDiv;
           } else if (`${div.response}` == 2) {
             const interviewDiv = `<a class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
                   <p class="w-3/12 flex justify-center">${div.department}</p>
-                  <p class="${div.id} w-8/12 flex justify-center cursor-pointer" onclick="clickBtn(this)">${div.title}</p>
-                  <p class="w-1/12 flex justify-center">거절</p>
+                  <p class="${div.id} w-8/12 flex justify-center cursor-pointer text-blue-500" onclick="clickBtn(this)">${div.title}</p>
+                  <p class="w-1/12 flex justify-center text-red-500">거절</p>
                   </a>`;
             interviewWrap2.innerHTML += interviewDiv;
           } else if (`${div.response}` == 3) {
             const interviewDiv = `<div class="flex p-3 justify-around text-sm text-black w-full space-x-10" href="/interview/get-interview/${div.id}}">
                   <p class="w-3/12 flex justify-center">${div.department}</p>
-                  <p class="${div.id} w-8/12 flex justify-center cursor-pointer" onclick="clickBtn(this)">${div.title}</p>
-                  <p class="w-1/12 flex justify-center">보류</p>
+                  <p class="${div.id} w-8/12 flex justify-center cursor-pointer text-blue-500" onclick="clickBtn(this)">${div.title}</p>
+                  <p class="w-1/12 flex justify-center text-red-500">보류</p>
                   </div>`;
             interviewWrap2.innerHTML += interviewDiv;
           }
@@ -163,7 +163,7 @@ const countDeadline = () => {
 
       let innerLine = "";
       if (days) innerLine += `${days}d `;
-      else if (hour != "00") innerLine += `${hour}d `;
+      else if (hour !== "00") innerLine += `${hour}d `;
 
       innerLine += `${minutes}m ${second}s`;
 
