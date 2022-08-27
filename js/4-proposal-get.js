@@ -73,17 +73,18 @@ window.onload = () => {
         "#body"
       ).innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.body}</p>`;
       if(data.data.file){
+        const fileName = data.data.file.split("/").at(-1);
         document.querySelector(
           "#file"
-        ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${BASE_URL}${data.data.file}">파일 확인하기</a>`;
+        ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-blue-100 py-2" href="${BASE_URL}${data.data.file}">${fileName}</a>`;
       }
       
       document.querySelector(
         "#url"
-      ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${data.data.url}">${data.data.url}</a>`;
+      ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-blue-100 py-2" href="${data.data.url}">${data.data.url}</a>`;
       document.querySelector(
         "#deadline"
-      ).innerHTML += `<p class="deadline alive text-base font-normal outline-none text-black px-3 py-3"><input value=${data.data.deadline} style="display:none;"></p>`;
+      ).innerHTML += `<p class="deadline alive text-base font-normal outline-none text-red-100 px-3 py-3"><input value=${data.data.deadline} style="display:none;"></p>`;
 
       countDeadline();
       setInterval(() => {
