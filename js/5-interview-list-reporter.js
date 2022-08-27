@@ -159,6 +159,8 @@ const clickBtn = (obj) => {
     window.localStorage.setItem('id', id);
     window.location.href = "./4-proposal-get.html";
 }
+
+
 //     console.log(id);
 
 //     const token = localStorage.getItem("token");
