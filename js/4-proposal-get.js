@@ -72,7 +72,7 @@ window.onload = () => {
       document.querySelector(
         "#body"
       ).innerHTML += `<p class="w-full px-4 text-base font-normal outline-none text-black py-2">${data.data.body}</p>`;
-      if(!data.data.file){
+      if(data.data.file){
         document.querySelector(
           "#file"
         ).innerHTML += `<a class="w-full px-4 text-base font-normal outline-none text-black py-2" href="${BASE_URL}${data.data.file}">파일 확인하기</a>`;
