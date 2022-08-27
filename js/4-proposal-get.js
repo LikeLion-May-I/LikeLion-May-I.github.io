@@ -158,10 +158,8 @@ const countDeadline = () => {
 
       let innerLine = "";
       if (days) innerLine += `D-${days}`;
-      else {
-        innerLine += `${hour}h `;
-        innerLine += `${hour}h ${minutes}m ${second}s`;
-      }
+      else innerLine += `${hour}h ${minutes}m ${second}s`;
+      
 
       deadlineTag[
         i
